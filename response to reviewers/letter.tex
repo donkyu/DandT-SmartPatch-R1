@@ -1,0 +1,122 @@
+%\documentclass{article}
+\documentclass[onecolumn]{IEEEconf}
+%\usepackage{a4wide}
+\usepackage{enumitem}
+\usepackage[usenames, dvipsnames]{color}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\renewcommand{\figurename}{Fig.}
+\renewcommand*{\thetable}{\Roman{table}}
+
+\title{Response to the Reviewers' Comments}
+\begin{document}
+
+\maketitle
+
+The authors would like to thank the reviewers for the precious comments and suggestions on the technical contents and presentation of our manuscript ``SmartPatch: A Self-Powered and Patchable Cumulative UV Irradiance Meter,'' submitted to IEEE Design and Test. This revised manuscript has been greatly improved thanks to the reviewers’ invaluable advices. We have revised the manuscript faithfully following the reviewers’ comments. We include the newly added or significantly modified parts in the revised version of the paper also in Response to Reviewers. We highlight the important technical content changes and set those parts in a red color in the revised paper. Detailed comments and corresponding corrections are listed below:\\
+
+\setlength{\parindent}{0cm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textbf{Reviewer 1:}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{description}
+\item [C1: ] Is the number of modes a significant limitation of SmartPatch? It would also help to understand this if the amount MED varies with skin type is shown. If MED varies significantly between pale and very dark skin, and since SPF is multiplicative with maximum UV exposure time I would assume that the four modes does not cover the user space well. You could easily have more than two bins for skin type and way more sunscreen options (SPF 30+) that would significantly alter maximum UV exposure time.  
+\item [R1: ] Thank you for your good comment. Of course, it is possible to increase the number of modes because it requires less than 5 bits to consider all cases. We can set the number of modes as a product of the number of skin types and the number of sunscreen options. We emphasize the description of mode configuration in Section III-C to help the readers’ understand.\\
+
+\underline{We modify the beginning of Section III-C in the manuscript as:}\\
+The current version of SmartPatch is embedded with two user interface functions: device reset and mode change. Adding new features does not incur major design change. Fig. 7 shows examples of the switch-less user interface functions. Blocking the UV sensor for more than one second resets SmartPatch and starts a new mode configuration. The user is supposed to repeat the UV sensor blocking until the configuration sets a desired mode. Repeating the reset motion makes the device escape from the mode configuration and start a new UV irradiance accumulation. \textcolor{red}{The number of modes is set as a product of the number of skin types and the number of sunscreen options.}
+~\\
+
+\item [C2: ] “The existing UV meters under- or overestimates the accumulation of UV irradiance.” I would assume that existing UV meters is accurate with respect to the part of the body it is monitoring. This should be corrected. In addition, is the shoulder the most appropriate place to measure the UV for these activities (e.g., chatting on a bench, walking outdoors, seated on a grass field)? For a person that is wearing a typical shirt, is the UV measurements in Fig. 9 given for their shoulder under their shirt? Or is the use-case more specific than that (e.g., tank tops or shirt-less)?
+\item [R2: ] Answer.
+~\\
+
+\item [C3: ] NVRAM should be defined at its first use.
+\item [R3: ] We define NVRAM in Section III-A in which NVRAM is used first.\\
+
+\underline{We modify Section III-A in the manuscript as:}\\
+DPM is no longer available if the solar irradance becomes too low, and SmartPatch should be completely shut down. The power management unit (PMU) detects power interruption and let a non-volatile memory (NVRAM) save the necessary context [10]. \textcolor{red}{The NVRAM has the feature that the stored contents are not lost even if there is no power source.} NVRAM is solely powered by the bulk capacitor while it saves the context, and thus the proposed storage-less and converter- less MPPT allows to save only a very small capacity of context. Fortunately, SmartPatch needs to save just a byte of information to the NVRAM.
+~\\
+
+\item [C4:] The English and phrasing should be carefully reviewed. For example, it was difficult to parse “We measure the UV irradiance on the wrists, chests… as a reference with several UV irradiance meters including SmartPatch (Fig. 2.).” Also, “In cooperation with a sunscreen with a specific SPF and skin type, which are user programmable” seems to imply that users can program their sunscreen’s SPF and change their skin type and cooperation would imply that sunscreen can make their own actions. I believe it should be more along the lines of: SmartPatch can aid the user in when to reapply sunscreen based on the user’s skin type and sunscreen SPF.
+\item [R4: ] The sentences can lead to misunderstanding. We modified the manuscript. \\
+
+\underline{We modify Section III-C in the manuscript as:}\\
+We measure UV irradiance on various skin areas in the morning and afternoon as shown in Fig. 9. \textcolor{red}{We measure the UV irradiance on the wrists, chests, shoulders, and the ground as a reference with SmartPatch (Fig. 2.)} The skin area of interest in the experiment is the shoulder, and SmartPatch is attached to the shoulder skin. Other UV meters are carried or attached as designed. For instance, a watch type UV meter measures the UV irradiance on the wrist. The UV irradiance to the ground increases by the angle to the Sun that is the maximum at 1:36 pm (13:36) in the experiments.\\
+
+\underline{We modify the beginning of Section III in the manuscript as:}\\
+
+\begin{itemize}
+\item Covering both the UVA and UVB spectrum,
+\item Having a small form factor and possibly disposable,
+\item \textcolor{red}{Aiding the user in when to reapply sunscreen based on the user’s skin type and sunscreen SPF,}
+\item Calculating the maximum UV exposure time based on the UV irradiance and skin type,
+\item A patchable design to measure the actual cumulative UV irradiance on the exact skin area of interest,
+\item Self-powered by a PV cell with the minimum possible size, and
+\item No use of a power converter nor significant energy storage.
+\end{itemize}
+
+\end{description}
+
+\pagebreak
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textbf{Reviewer 2:}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{description}
+\item [C1: ] In abstract, you should address the motivation, your approach, and experimental results.
+\item [R1: ] Answer.\\
+~\\
+
+\item [C2: ] In the introduction, you can state your approach and the comparisons between your approach and the existing state-of-the-art approach.
+\item [R2: ] Answer.\\
+~\\
+
+\item [C3: ] In Section II, authors state that "However they (devices) does not show the exact amount of accumulated UV irradiance." \\
+1. Maybe the user does not care the exact amount of UV. \\
+2. How do you know these devices cannot measure the exact amount? Do you have any literatures to support it?\\
+3. In experiments, you also can compare your device with the existing devices to show how accuracy your device is.
+\item [R3: ] Answer.\\
+~\\
+
+\item [C4: ] Also in Section II, the authors state that the reason why these devices are inaccurate is because every skin surface has a different perpendicular angle to the Sun. In your device, the reviewer wonders how you address this issue.
+\item [R4: ] Answer.\\
+~\\
+
+\item [C5: ] In expeirmental results, you should compare your results with the existing approaches and see what your improvements are in terms of power reduction and accuracy.
+\item [R5: ] Answer.\\
+~\\
+
+Additional Questions:
+\item [C6: ] How relevant is this manuscript to the readers of this periodical? Please explain your rating in the Detailed Comments section.: Interesting - but not very relevant
+\item [R6: ] Answer.\\
+~\\
+
+\item [C7: ] Please summarize what you view as the key point(s) of the manuscript and the importance of the content to the readers of this periodical. If you don't have any comments, please type No Comments.: This paper introduces a new UV irradiance meter with the storage-less and converter-less MPPT to make it area efficient.
+\item [R7: ] Answer.\\
+~\\
+
+
+%\item [C4: ] Looking at the decompressed image quality, a small error is introduced. Have you considered using loss-less compression methods like JPEG2000? This may be an interesting feature in the future.
+%\item [R4: ] There is a relationship between compression ratio and operating power consumption in several image compression methods. In a related paper, the discrete wavelet transform (DWT) in JPEG2000 obtains better image quality for the same image size by consuming more calculation power compared to the discrete cosine transform (DCT) in JPEG. Comparison of  display controller power consumption by the image compression methods will be interesting future works. We update this issue in conclusion section. \\
+%
+%\underline{We modify the beginning of Section VII in the manuscript as:}\\
+%
+%As for a future work, we have a plan to design a small size cache to store the simple but frequent images. The analysis of the image refresh intervals is also an interesting topic. \textcolor{red}{In addition, there is a relationship between compression ratio and operating power consumption in several image compression methods [A]. Comparison of display controller power consumption by the image compression methods will be interesting future works.}
+%
+%~\\
+%$[$A$]$ Anilkumar Katharotiya, Swati Patel and Mahesh Goyani,”Comparative Analysis between DCT \& DWT Techniques of Image Compression,” Journal of Information Engineering and Applications, 2011.
+%~\\
+%
+%\item [C5: ] Using colors for this purpose (showing data transfers) may not be the best idea - anyone printing the article in B/W is unable to understand the images. Please consider changing the colors to pattern/dashed arrows.
+%\item [R5: ] Fig. 2 and 3 may cause misunderstand for an article in B/W. We modify the figures as followings. 
+%
+%\item [C6: ] There seems to be a font issue within the images, causing my print-out to only show squares for many characters. Please check.
+%\item [R6: ] We check the problem. Thanks. 
+\end{description}
+
+\end{document}
+
+
+

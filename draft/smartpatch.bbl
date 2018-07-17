@@ -1,0 +1,49 @@
+\begin{thebibliography}{10}
+
+\bibitem{Matsumura:TAP04}
+Y.~Matsumura and H.~Ananthaswamy, ``Toxic effects of ultraviolet radiation on
+  the skin,'' {\em Toxicology and Applied Pharmacology}, vol.~195, pp.~298 --
+  308, 2004.
+
+\bibitem{Harrison:Method02}
+G.~Harrison and A.~Young, ``Ultraviolet radiation-induced erythema in human
+  skin,'' {\em Methods}, vol.~28, no.~1, pp.~14 -- 19, 2002.
+
+\bibitem{Diffey:CPPM91}
+B.~Diffey and P.~Farr, ``Quantitative aspects of ultraviolet erythema,'' {\em
+  Clinical Physics and Physiological Measurement}, vol.~12, pp.~311 -- 325,
+  1991.
+
+\bibitem{CIE}
+International Commission on Illumination, \url{http://www.cie.co.at}.
+
+\bibitem{Netatmo}
+Netatmo, June,
+  \url{https://www.wareable.com/wearable-tech/netatmo-june-review-1176}.
+
+\bibitem{Ultra}
+Ultra Incorporation, Violet, \url{http://www.liveultrahealthy.com/index.html}.
+
+\bibitem{LOreal}
+L’Oreal, The First Battery-Free Wearable Electronic UV Sensor,
+  \url{http://www.lorealusa.com/media/press-releases/2018/january/uv-sense}.
+
+\bibitem{Wang:ASPDAC14}
+C.~Wang, N.~Chang, Y.~Kim, S.~Park, Y.~Liu, H.~Lee, R.~Luo, and H.~Yang,
+  ``Storage-less and converter-less maximum power point tracking of
+  photovoltaic cells for a nonvolatile microprocessor,'' in {\em Proceedings of
+  Asia-South Pacific Design Automation Conference}, 2014.
+
+\bibitem{Lee:ASPDAC15}
+H.~Lee and N.~Chang, ``Powering the {IoT}: Storage-less and converter- less
+  energy harvesting,'' in {\em Proceedings of Asia-South Pacific Design
+  Automation Conference}, 2015.
+
+\bibitem{Balsamo:TCAD16}
+D.~Balsamo, A.~S. Weddell, A.~Das, A.~R. Arreola, D.~Brunelli, B.~M.
+  Al-Hashimi, G.~V. Merrett, and L.~Benini, ``Hibernus++: A self-calibrating
+  and adaptive system for transiently-powered embedded devices,'' {\em
+  Transactions on Computer-Aided Design of Integrated Circuits and Systems},
+  vol.~35, no.~12, pp.~1968 -- 1980, 2016.
+
+\end{thebibliography}
