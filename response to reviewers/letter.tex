@@ -13,7 +13,7 @@
 
 \maketitle
 
-The authors would like to thank the reviewers for the precious comments and suggestions on the technical contents and presentation of our manuscript ``SmartPatch: A Self-Powered and Patchable Cumulative UV Irradiance Meter,'' submitted to IEEE Design and Test. This revised manuscript has been greatly improved thanks to the reviewers’ invaluable advices. We have revised the manuscript faithfully following the reviewers’ comments. We include the newly added or significantly modified parts in the revised version of the paper also in Response to Reviewers. We highlight the important technical content changes and set those parts in a red color in the revised paper. Detailed comments and corresponding corrections are listed below:\\
+The authors would like to thank the reviewers for the precious comments and suggestions on the technical contents and presentation of our manuscript ``SmartPatch: A Self-Powered and Patchable Cumulative UV Irradiance Meter,'' submitted to IEEE Design and Test. This revised manuscript has been greatly improved thanks to the reviewers' invaluable advices. We have revised the manuscript faithfully following the reviewers' comments. We include the newly added or significantly modified parts in the revised version of the paper also in Response to Reviewers. We highlight the important technical content changes and set those parts in a red color in the revised paper. Detailed comments and corresponding corrections are listed below:\\
 
 \setlength{\parindent}{0cm}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -21,7 +21,7 @@ The authors would like to thank the reviewers for the precious comments and sugg
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{description}
 \item [C1: ] Is the number of modes a significant limitation of SmartPatch? It would also help to understand this if the amount MED varies with skin type is shown. If MED varies significantly between pale and very dark skin, and since SPF is multiplicative with maximum UV exposure time I would assume that the four modes does not cover the user space well. You could easily have more than two bins for skin type and way more sunscreen options (SPF 30+) that would significantly alter maximum UV exposure time.  
-\item [R1: ] SmartPatch is not limited by the number of modes. The number of modes are set as a product of the number of skin types and the number of sunscreen options. We emphasize the description of mode configuration in Section III-C to help the readers’ understand.
+\item [R1: ] SmartPatch is not limited by the number of modes. The number of modes are set as a product of the number of skin types and the number of sunscreen options. We emphasize the description of mode configuration in Section III-C to help the readers' understand.
 
 \underline{We modify the beginning of Section III-C in the manuscript as:}\\
 The current version of SmartPatch embeds two user interface functions: device reset and operation mode change.
@@ -31,7 +31,7 @@ Blocking the UV sensor for more than a second resets SmartPatch and starts a new
 \textcolor{red}{Then, the user is supposed to repeat the UV sensor blocking until the mode is set to a desired one. In the figure, the number of mode is four, but it can be easily changeable by using the NVRAM
 repeating the reset motion -- blocking the UV sensor more than one second -- makes the device escape from the mode configuration and start a new UV irradiance accumulation.}~\\
 
-\item [C2: ] “The existing UV meters under- or overestimates the accumulation of UV irradiance.” I would assume that existing UV meters is accurate with respect to the part of the body it is monitoring. This should be corrected. In addition, is the shoulder the most appropriate place to measure the UV for these activities (e.g., chatting on a bench, walking outdoors, seated on a grass field)? For a person that is wearing a typical shirt, is the UV measurements in Fig. 9 given for their shoulder under their shirt? Or is the use-case more specific than that (e.g., tank tops or shirt-less)?
+\item [C2: ] ``The existing UV meters under- or overestimates the accumulation of UV irradiance.'' I would assume that existing UV meters is accurate with respect to the part of the body it is monitoring. This should be corrected. In addition, is the shoulder the most appropriate place to measure the UV for these activities (e.g., chatting on a bench, walking outdoors, seated on a grass field)? For a person that is wearing a typical shirt, is the UV measurements in Fig. 9 given for their shoulder under their shirt? Or is the use-case more specific than that (e.g., tank tops or shirt-less)?
 \item [R2: ] The UV irradiance measurement directly on the skin area of interest enhances the measurement accuracy. However, the existing UV meters do not show the exact amount of accumulated UV irradiance because every skin surface has a different perpendicular angle to the Sun and is subject to continuous shading change. For example, An wrist strap type UV meter underestimates the accumulation of the UV irradiation on the shoulder. 
 ~\\
 
@@ -39,9 +39,9 @@ repeating the reset motion -- blocking the UV sensor more than one second -- mak
 \item [R3: ] We define the non-volatile RAM in Section III-A.\\
 ~\\
 
-\item [C4:] The English and phrasing should be carefully reviewed. For example, it was difficult to parse “We measure the UV irradiance on the wrists, chests… as a reference with several UV irradiance meters including SmartPatch (Fig. 2.).” 
+\item [C4:] The English and phrasing should be carefully reviewed. For example, it was difficult to parse ``We measure the UV irradiance on the wrists, chests… as a reference with several UV irradiance meters including SmartPatch (Fig. 2.).'' 
 
-\item [R4: ] The sentences can lead to misunderstanding. We modified the manuscript. \\
+\item [R4: ] We modified the manuscript. \\
 
 \underline{We modify Section III-C in the manuscript as:}\\
 We measure UV irradiance on various skin areas in the morning and afternoon as shown in Fig. 9. \textcolor{red}{We measure the UV irradiance on the wrists, chests, shoulders, and the ground as a reference with SmartPatch (Fig. 2.)} The skin area of interest in the experiment is the shoulder, and SmartPatch is attached to the shoulder skin. Other UV meters are carried or attached as designed. For instance, a watch type UV meter measures the UV irradiance on the wrist. The UV irradiance to the ground increases by the angle to the Sun that is the maximum at 1:36 pm (13:36) in the experiments.\\
