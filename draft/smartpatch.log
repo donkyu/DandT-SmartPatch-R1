@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.12.19)  29 JUL 2018 23:24
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.12.19)  3 AUG 2018 00:51
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -707,21 +707,20 @@ File: Figures/UVI_guideline.pdf Graphic file (type pdf)
 <use Figures/UVI_guideline.pdf>
 Package pdftex.def Info: Figures/UVI_guideline.pdf used on input line 54.
 (pdftex.def)             Requested size: 252.0pt x 156.06424pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
  [1{/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
 
  <./Figures/UVI_guideline.pdf>]
 LaTeX Font Info:    Try loading font information for OT1+ptmcm on input line 89
 .
- (/usr/local/texlive/2015/texmf-dist/tex/latex/psnfss/ot1ptmcm.fd
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/psnfss/ot1ptmcm.fd
 File: ot1ptmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OT1/ptmcm.
 )
 LaTeX Font Info:    Try loading font information for OML+ptmcm on input line 89
 .
- (/usr/local/texlive/2015/texmf-dist/tex/latex/psnfss/omlptmcm.fd
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/psnfss/omlptmcm.fd
 File: omlptmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OML/ptmcm.
 )
 LaTeX Font Info:    Try loading font information for OMS+pzccm on input line 89
@@ -745,21 +744,21 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
 File: Figures/UVI_meter.pdf Graphic file (type pdf)
 
 <use Figures/UVI_meter.pdf>
-Package pdftex.def Info: Figures/UVI_meter.pdf used on input line 146.
+Package pdftex.def Info: Figures/UVI_meter.pdf used on input line 147.
 (pdftex.def)             Requested size: 201.60077pt x 242.43987pt.
 
 <Figures/UV_skin_areas.pdf, id=28, 294.09875pt x 470.75874pt>
 File: Figures/UV_skin_areas.pdf Graphic file (type pdf)
 
 <use Figures/UV_skin_areas.pdf>
-Package pdftex.def Info: Figures/UV_skin_areas.pdf used on input line 153.
+Package pdftex.def Info: Figures/UV_skin_areas.pdf used on input line 154.
 (pdftex.def)             Requested size: 100.79846pt x 161.34164pt.
  [2]
 <Figures/architectures.pdf, id=37, 387.4475pt x 278.03876pt>
 File: Figures/architectures.pdf Graphic file (type pdf)
 
 <use Figures/architectures.pdf>
-Package pdftex.def Info: Figures/architectures.pdf used on input line 201.
+Package pdftex.def Info: Figures/architectures.pdf used on input line 202.
 (pdftex.def)             Requested size: 252.0pt x 180.84183pt.
  [3 <./Figures/UVI_meter.pdf> <./Figures/UV_skin_areas.pdf>]
 <Figures/switchless_interface.pdf, id=122, 348.87569pt x 318.35266pt>
@@ -767,21 +766,24 @@ File: Figures/switchless_interface.pdf Graphic file (type pdf)
 
 <use Figures/switchless_interface.pdf>
 Package pdftex.def Info: Figures/switchless_interface.pdf used on input line 21
-8.
+9.
 (pdftex.def)             Requested size: 201.60077pt x 183.96944pt.
+
+Underfull \vbox (badness 1540) has occurred while \output is active []
+
 
 <Figures/block_diagram.pdf, id=123, 384.43625pt x 245.91875pt>
 File: Figures/block_diagram.pdf Graphic file (type pdf)
 
 <use Figures/block_diagram.pdf>
-Package pdftex.def Info: Figures/block_diagram.pdf used on input line 242.
+Package pdftex.def Info: Figures/block_diagram.pdf used on input line 243.
 (pdftex.def)             Requested size: 252.0pt x 161.20366pt.
 
 <Figures/configuration.pdf, id=124, 392.46625pt x 373.395pt>
 File: Figures/configuration.pdf Graphic file (type pdf)
 
 <use Figures/configuration.pdf>
-Package pdftex.def Info: Figures/configuration.pdf used on input line 249.
+Package pdftex.def Info: Figures/configuration.pdf used on input line 250.
 (pdftex.def)             Requested size: 252.0pt x 239.75824pt.
  [4 <./Figures/architectures.pdf> <./Figures/switchless_interface.pdf> <./Figur
 es/block_diagram.pdf>]
@@ -789,14 +791,14 @@ es/block_diagram.pdf>]
 File: Figures/prototype.pdf Graphic file (type pdf)
 
 <use Figures/prototype.pdf>
-Package pdftex.def Info: Figures/prototype.pdf used on input line 292.
+Package pdftex.def Info: Figures/prototype.pdf used on input line 293.
 (pdftex.def)             Requested size: 252.0pt x 111.31908pt.
 
 <Figures/UV_measure.pdf, id=193, 398.48875pt x 400.49625pt>
 File: Figures/UV_measure.pdf Graphic file (type pdf)
 
 <use Figures/UV_measure.pdf>
-Package pdftex.def Info: Figures/UV_measure.pdf used on input line 344.
+Package pdftex.def Info: Figures/UV_measure.pdf used on input line 345.
 (pdftex.def)             Requested size: 252.0pt x 253.26729pt.
  [5 <./Figures/configuration.pdf> <./Figures/prototype.pdf>] (./smartpatch.bbl
 Underfull \hbox (badness 10000) in paragraph at lines 21--23
@@ -812,7 +814,7 @@ Here is how much of TeX's memory you used:
  7855 multiletter control sequences out of 15000+600000
  55321 words of font info for 104 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 38i,18n,28p,918b,281s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 38i,18n,28p,933b,281s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2015/t
 exmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2015/texmf-dist/fonts
 /type1/public/amsfonts/cmextra/cmex9.pfb></usr/local/texlive/2015/texmf-dist/fo
@@ -823,7 +825,7 @@ type1/urw/symbol/usyr.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/urw/t
 imes/utmb8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/urw/times/utmbi
 8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></u
 sr/local/texlive/2015/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on smartpatch.pdf (6 pages, 3502358 bytes).
+Output written on smartpatch.pdf (6 pages, 3502436 bytes).
 PDF statistics:
  345 PDF objects out of 1000 (max. 8388607)
  239 compressed objects within 3 object streams
