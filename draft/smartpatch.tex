@@ -39,8 +39,6 @@
 \section{Introduction}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%UV
-<<<<<<< HEAD
 \textcolor{red}{A proper level of ultraviolet (UV) \textit{irradiation (time integral of irradiance\footnote{The radiant of UV energy per area.})} on the human skin is essential as it stimulates synthesis of Vitamin D. Human skins can endure a certain level of UV irradiation, but over-irradiation may cause skin damage and can even develop a fatal disease.}
 Therefore, modern society humans are generally warned to avoid excessive UV irradiation even during their daily life.
 
@@ -49,14 +47,6 @@ Therefore, modern society humans are generally warned to avoid excessive UV irra
 \textcolor{red}{In order to safely perform outdoor activities without experiencing skin damage, we should be aware of  the maximum UV irradiation. UVI and UV exposure time are easy metrics to estimate UV irradiation for normal people when a medical-grade scientific measure is not accessible. Although we commonly estimate the UV irradiation by the UV exposure time, it cannot be a reasonable estimation of UV irradiation on a particular skin area because UV irradiation is determined by the time integral of the instantaneous UVI accounting the angle between the Sun, in addition to the individual factors such as skin color. Additional UV protection such as sunscreen lotion makes it even more difficult.} 
 
 \textcolor{red}{It is crucial to directly measure the UV irradiance and irradiation on the target skin surface of interest, \textit{i.e.} a UV sensor must be directly mounted on the skin surface of interest with the same angle to the Sun. The UV meter continuously read the UV sensor and integrate the value over time. Unfortunately, to the best of our knowledge, existing UV measuring tools for normal people (excluding a laboratory measurement setup) can hardly achieve this goal.}
-=======
-\textcolor{red}{Ultraviolet (UV) radiation is a part of invisible solar energy but seriously affects to health especially associated with the skin.} A proper level of ultraviolet (UV) irradiation (irradiance integrated over time) on the human skin is essential as it stimulates synthesis of Vitamin D, but over-irradiation creates skin damage and can develop a fatal disease. Therefore, modern society humans are generally warned to avoid excessive UV irradiation even during their common daily life.
-
-% What normal people usually do to avoid excessive UV irradiance
-\textcolor{red}{In order to safely perform outdoor activities without experiencing skin damage, people should be aware of the maximum UV irradiation level, which is mainly determined by the UV irradiance intensity accounting the angle between the Sun and the skin surface integrated over the UV exposure time, in addition to the individual factors such as skin color. Human skins can endure a certain level of UV irradiation, and over-irradiation may create skin damage.}
-
-\textcolor{red}{The intensity of UV irradiance is often quantified by the UV index (UVI). Region-based daily UVIs are commonly broadcasted through weather forecast channels . There are general guidelines to avoid skin damage classified with  the UVI as shown in Fig.~\ref{fig:guidelines}. For example, people are recommended to cover the skin when the UVI is under 6 while it is recommended to stay indoor when the UVI  is over 6. However, such general guideline does not explain a personalized maximum allowable UV exposure time.}
->>>>>>> fa14d8f8bfa524bfc7640f0d56462c530fb482d2
 
 \begin{figure}
 \centering
@@ -64,25 +54,12 @@ Therefore, modern society humans are generally warned to avoid excessive UV irra
 \caption{Guidelines to protect oneself from overexposure to UV irradiance (US Environmental Protection Agency.)}
 \label{fig:guidelines}
 \end{figure}
-<<<<<<< HEAD
 
 \textcolor{red}{In this article, we introduce SmartPatch, a solar-powered and patchable smart UV irradiation meter that informs both the current UV irradiance and irradiation. SmartPatch is designed to attach on the skin surface of interest, its UV measurement meets the above mentioned requirements such as the angle to the Sun, environmental change and body movement. Two key technologies are behind the proposed SmartPatch. The first is a storage-less and converter-less energy harvesting~\cite{Lee:ASPDAC15} that does not require a battery nor a voltage converter for solar energy harvesting. The second is a switch-less user interface. These two technologies can significantly reduce both volumetric and gravimetric overheads as well as the manufacturing cost.}
 
 \textcolor{red}{SmartPatch detects the correlation between the UV irradiance and solar irradiance. Natural operation keeps a high correlation between them. The correlation is broken if the UV sensor is intentionally blocked by a finger. SmartPatch detects such finger actions and utilizes them for UI (user interface) as if physical switches are pressed by the finger. A smartphone LED flashlight can do the same job. We design an app that  generates pre-defined light flashing patterns so that a single screen touch can replace multiple times of finger actions. These technologies make it possible to implement SmartPatch with simple integrated circuits in a single chip, and a tiny PV cell directly supplies power to the chip without a power converter and a battery. As a result, SmartPatch becomes extremely low-cost, low profile, small, and light.}
 
  \textcolor{red}{The main functions of Smartpatch include 1) displaying the current UVI, 2) displaying the remaining UV irradiation to avoid skin damage, and 3) mode change or parameter setting for the personalized skin type and the SPF (Sun protection factor) of the currently applied sunscreen lotion. We verified the functionalities and usefulness of SmartPatch performing various outdoor activities.}
-=======
-% Need more scientific information considering individual's characteristics
-\textcolor{red}{UV exposure time is an easy metric for normal people unless they can access a scientific measure of UV irradiation but is far inaccurate in general to estimate the UV irradiation on the skin. Furthermore, individual characteristics such as the skin make it more complicated to understand the current UV irradiation. 
-Additional UV protection such as sunscreen lotion makes it even more difficult. 
-Once again, UV irradiation is significantly variable by the angle between the Sun and the exposed skin surface even under the same UV radiation strength. Thus, it is crucial to directly measure the UV irradiance and irradiation on the target skin surface of interest, \textit{i.e.} a UV sensor is directly mounted on the skin surface of interest, and the UV irradiance should be integrated over time as the UV irradiance on the skin changes all the time by the environmental factors as well as the body movement. Unfortunately, to the best of our knowledge, existing UV measurement tools for normal people (excluding a laboratory measurement setup) can hardly achieve this goal.}
-
-% Introducing SmartPatch with main contributions
-\textcolor{red}{In this article, we introduce SmartPatch, a solar-powered  and patchable smart UV meter that informs both the current UV irradiance and irradiation. The SmartPatch is supposed to attach on the skin surface of interest, the UV measurement meets the above mentioned requirement such as the angle to the Sun, environmental change and body movement.  Two key technologies are behind the proposed SmartPatch. The first is a storage-less and converter-less energy harvesting~\cite{Lee:ASPDAC15} that does not require a battery nor a voltage converter for solar  energy harvesting. The second is a switch-less user interface. These two technologies can significantly reduce both volumetric and gravimetric overhead as well as the manufacturing cost. SmartPatch detects the UV and solar irradiance correleration patterns, which is not natural but close to the predefined values. Such artificial patterns are generated when the user blocks the Sun only to the UV sensor area by a finger. SmartPatch recognizes such actions as if physical switches are pressed by the user. A smartphone app can also generate the artificial patterns by the built-in flashlight.The two technologies can be easily implemented with simple digital circuits, and a single chip implementation achieves a patchable UV meter extremely low-cost, low profile, small, and light.\\
-% 
-The main functions of Smartpatch include 1) displaying the current UVI, 2) displaying the remaining UV irradiation to avoid skin damage, and 3) mode change or parameter setting for the personalized skin type and the SPF (Sun protection factor) of the currently applied sunscreen lotion. We verified the functionalities and usefulness of SmartPatch performing various outdoor activities.}
-
->>>>>>> fa14d8f8bfa524bfc7640f0d56462c530fb482d2
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Backgrounds}
