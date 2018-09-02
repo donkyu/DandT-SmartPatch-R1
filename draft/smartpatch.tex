@@ -6,6 +6,8 @@
 \usepackage{graphicx,color}
 \usepackage{CJKutf8}
 \usepackage{multirow}
+\usepackage[labelformat=simple]{subcaption}
+\renewcommand\thesubfigure{(\alph{subfigure})}
 
 \begin{document}
 \title{SmartPatch: A Self-Powered and Patchable Cumulative UV Irradiance Meter}
@@ -59,7 +61,7 @@ Therefore, modern society humans are generally warned to avoid excessive UV irra
 
 \textcolor{red}{SmartPatch detects the correlation between the UV irradiance and solar irradiance. Natural operation keeps a high correlation between them. The correlation is broken if the UV sensor is intentionally blocked by a finger. SmartPatch detects such finger actions and utilizes them for UI (user interface) as if physical switches are pressed by the finger. A smartphone LED flashlight can do the same job. We design an app that  generates pre-defined light flashing patterns so that a single screen touch can replace multiple times of finger actions. These technologies make it possible to implement SmartPatch with simple integrated circuits in a single chip, and a tiny PV cell directly supplies power to the chip without a power converter and a battery. As a result, SmartPatch becomes extremely low-cost, low profile, small, and light.}
 
- \textcolor{red}{The main functions of Smartpatch include 1) displaying the current UVI, 2) displaying the remaining UV irradiation to avoid skin damage, and 3) mode change or parameter setting for the personalized skin type and the SPF (Sun protection factor) of the currently applied sunscreen lotion. We verified the functionalities and usefulness of SmartPatch performing various outdoor activities.}
+ \textcolor{red}{The main functions of SmartPatch include 1) displaying the current UVI, 2) displaying the remaining UV irradiation to avoid skin damage, and 3) mode change or parameter setting for the personalized skin type and the SPF (Sun protection factor) of the currently applied sunscreen lotion. We verified the functionalities and usefulness of SmartPatch performing various outdoor activities.}
 
 \section{Backgrounds}
 
@@ -106,7 +108,8 @@ As shown in Fig.~\ref{fig:UV_exposure_skin}, each skin surface area has a distin
 \begin{figure}
 \centering
 \includegraphics[width=0.8\hsize]{Figures/UVI_meter.pdf}
-\caption{(a) Simple UV irradiance meters that inform the instantaneous UV irradiance level only and (b)--(c) advanced UV irradiance meters that calculate the maximum UV exposure time based on the skin type and the SPF of the sunscreen~\cite{Netatmo, Ultra, LOreal}.}
+%\caption{(a) Simple UV irradiance meters that inform the instantaneous UV irradiance level only and (b)--(c) advanced UV irradiance meters that calculate the maximum UV exposure time based on the skin type and the SPF of the sunscreen~\cite{Netatmo, Ultra, LOreal}.}
+\caption{Commercial UV irradiance meters~\cite{Netatmo, Ultra, LOreal}.}
 \label{fig:UVI_meters}
 \end{figure}
 
@@ -126,7 +129,7 @@ As shown in Fig.~\ref{fig:UV_exposure_skin}, each skin surface area has a distin
 \textcolor{red}{Implementation of a patchable UV irradiation meter is challenging due to the volumetric and gravimetric constraints. A low-profile design is a must as well. Use of a battery is a common solution for the existing UV irradiation meters, but this method eventually ends of with a higher cost, a larger form factor and a heavy weight. We describe the requirement of SmartPatch as follows:}
 
 \begin{itemize}
-\item Covering both the UVA and UVB spectrum,
+%\item Covering both the UVA and UVB spectrum,
 \item Having a small form factor and possibly disposable,
 \item \textcolor{red}{Programming the sunscreen SPF and user's skin type,}
 \item Calculating the maximum UV exposure time based on the UV irradiance and skin type,
@@ -138,20 +141,22 @@ As shown in Fig.~\ref{fig:UV_exposure_skin}, each skin surface area has a distin
 \subsection{Storage-less and converter-less Energy Harvesting Technology}
 Most energy harvesting systems adopt energy storage elements as well as power converters, which have been considered as must-have components for performing the maximum power point tracking (MPPT). However, those components seriously limit the design in many aspects such as the weight, form factor, cost, maintainability, etc. Recently, a breakthrough MPPT method that does not require power converters and energy storage elements has been introduced for high-efficiency PV energy harvesting applications~\cite{Wang:ASPDAC14}.
 
-The basic principle of the storage-less and converter-less energy harvesting is to supply the harvested energy from the PV cell directly to the target device using a fine-grained DPM technique as shown in Fig.~\ref{fig:architectures}(b). Power converter can be simply removed if the voltage level directly supplied from the PV cell is in the range of the operating voltage for the target device. In general, the MPP voltage of the PV cell is maintained within a quite narrow range regardless of the solar irradiance.
-This implies that the PV cell generates almost-constant voltage output, that is a main role of power converters, as long as we keep the track of the MPP current. Fast enough (or fine-grained) DPM makes the PV cell keep the MPP as if the current of the target device is a DC current as long as the average current is the same to the MPP current. However, fast DPM may bring non-negligible energy and time overhead during the power state change, and finally the overall energy efficiency is degraded. So a proper control method of the DPM considering the energy overhead is required for enlarging the energy efficiency. We adopt a pulse width modulation (PWM) based DPM in designing of SmartPatch~\cite{Lee:ASPDAC15}. The PWM based DPM controls the duty rate of power-on state compared with power-off state to keep the MPP. This DPM achieves higher energy efficiency as well as the low implementation cost at the same time among various DPM architectures.
+The basic principle of the storage-less and converter-less energy harvesting is to supply the harvested energy from the PV cell directly to the target device using a fine-grained DPM technique. %as shown in Fig.~\ref{fig:architectures}(b). 
+Power converter can be simply removed if the voltage level directly supplied from the PV cell is in the range of the operating voltage for the target device. 
+%In general, the MPP voltage of the PV cell is maintained within a quite narrow range regardless of the solar irradiance.This implies that the PV cell generates almost-constant voltage output, that is a main role of power converters, as long as we keep the track of the MPP current. 
+Fast enough (or fine-grained) DPM makes the PV cell keep the MPP as if the current of the target device is a DC current as long as the average current is the same to the MPP current~\cite{Wang:ASPDAC14}. However, fast DPM may bring non-negligible energy and time overhead during the power state change, and finally the overall energy efficiency is degraded. So a proper control method of the DPM considering the energy overhead is required for enlarging the energy efficiency. We adopt a pulse width modulation (PWM) based DPM in designing of SmartPatch~\cite{Lee:ASPDAC15}. The PWM based DPM controls the duty rate of power-on state compared with power-off state to keep the MPP. This DPM achieves higher energy efficiency as well as the low implementation cost at the same time among various DPM architectures.
 
 DPM is no longer available if the solar irradiance becomes too low, and SmartPatch should be completely shut down. The power management unit (PMU) detects power interruption and let the non-volatile RAM (NVRAM) save the necessary context \cite{Balsamo:TCAD16}. NVRAM is solely powered by the small size capacitor while it saves the context, and thus the proposed storage-less and converter-less MPPT allows to save only a very small capacity of context. Fortunately, SmartPatch needs to save just few bytes of information to the NVRAM.
 
-\begin{figure}
-\centering
-\includegraphics[width=1.0\hsize]{Figures/architectures.pdf}
-\caption{(a) A typical architecture of an energy harvesting system and (b) a storage- and converter-less energy harvesting system~\cite{Wang:ASPDAC14}.}
-\label{fig:architectures}
-\end{figure}
-
-A storage-less energy harvesting architecture raises relatively less technical challenges compared with the converter-less architecture. Instead, it may limit the area of the applications because the target devices become unavailable if the device is lack of harvested energy.
-However, SmartPatch is one of the ideal applications of storage-less energy harvesting because it does not have to measure the UV irradiance when there is no sunlight.
+%\begin{figure}
+%\centering
+%\includegraphics[width=1.0\hsize]{Figures/architectures.pdf}
+%\caption{(a) A typical architecture of an energy harvesting system and (b) a storage- and converter-less energy harvesting system~\cite{Wang:ASPDAC14}.}
+%\label{fig:architectures}
+%\end{figure}
+%
+%A storage-less energy harvesting architecture raises relatively less technical challenges compared with the converter-less architecture. Instead, it may limit the area of the applications because the target devices become unavailable if the device is lack of harvested energy.
+%However, SmartPatch is one of the ideal applications of storage-less energy harvesting because it does not have to measure the UV irradiance when there is no sunlight.
 
 \subsection{A switch-less user interface}
 %\textbf{A switch-less user interface enables a low-cost disposable design and an extreme low-profile design.}
@@ -169,20 +174,36 @@ Fig.~\ref{fig:switchless_interface} shows the principle of the operation of the 
 \subsection{SmartPatch design}
 
 We design a prototype of SmartPatch using two key technologies mentioned above.
-Fig.~\ref{fig:block_diagram} shows a block diagram of the SmartPatch prototype consisting of a PV cell, a power management unit (PMU), control logic, a NVRAM, a UV sensor, a display, and other glue logic. We implement the PMU with a PWM based DPM architecture. The control logic includes a switch-less user interface. The NVRAM stores the result of the UV irradiance accumulation, user skin type and use of a sunscreen. The display is customized to show the current UV irradiance level as well as the remaining UV exposure time before experiencing skin damages.
+Fig.~\ref{fig:block_diagram} shows a block diagram of the SmartPatch prototype consisting of a PV cell, a PMU, control logic, a NVRAM, a UV sensor, a display, and other glue logic. We implement the PMU with a PWM based DPM architecture. The control logic includes a switch-less user interface. The NVRAM stores the result of the UV irradiance accumulation, user skin type and use of a sunscreen. The display is customized to show the current UV irradiance level as well as the remaining UV exposure time before experiencing skin damages.
+
+%\begin{figure}
+%\centering
+%\includegraphics[width=1.0\hsize]{Figures/block_diagram.pdf}
+%\caption{A block diagram of SmartPatch.}
+%\label{fig:block_diagram}
+%\end{figure}
+%
+%\begin{figure}
+%\centering
+%\includegraphics[width=1.0\hsize]{Figures/configuration.pdf}
+%\caption{Reset and mode configurations of SmartPatch.}
+%\label{fig:configuration}
+%\end{figure}
 
 \begin{figure}
 \centering
-\includegraphics[width=1.0\hsize]{Figures/block_diagram.pdf}
-\caption{A block diagram of SmartPatch.}
-\label{fig:block_diagram}
-\end{figure}
-
-\begin{figure}
-\centering
-\includegraphics[width=1.0\hsize]{Figures/configuration.pdf}
-\caption{Reset and mode configurations of SmartPatch.}
-\label{fig:configuration}
+	\begin{subfigure}{0.45\textwidth}
+	\includegraphics[width=1.0\hsize]{Figures/block_diagram.pdf}
+	\caption{}
+	\label{fig:block_diagram}
+	\end{subfigure}
+~
+	\begin{subfigure}{0.45\textwidth}
+	\includegraphics[width=1.0\hsize]{Figures/configuration.pdf}
+	\caption{}
+	\label{fig:configuration}
+	\end{subfigure}
+\caption{(a) A block diagram and (b) reset and mode configurations of SmartPatch.}
 \end{figure}
 
 The current version of SmartPatch embeds two user interface functions: device reset and operation mode change. Adding new features does not incur major design change. Fig.~\ref{fig:configuration} shows examples of the switch-less user interface functions. Blocking the UV sensor for more than a second resets SmartPatch and starts a new mode configuration. \textcolor{red}{The user is supposed to repeat blocking the UV sensor until the desired  mode is set. In Figure~\ref{fig:configuration}, the number of operating modes is designed as four for the demonstration purpose, but it is easily expanded by the use of NVRAM. Repeating the reset finger action (blocking the UV sensor longer than a second) makes the device escape from the configuration mode and start a new UV irradiation measurement.}
@@ -195,9 +216,9 @@ The current version of SmartPatch embeds two user interface functions: device re
 The form factor is a crucial design consideration of the SmartPatch prototype.
 We integrate most major parts of SmartPatch including the PMU into an application specific integrated circuit (ASIC.)
 Table~\ref{table:fab_summary} shows the summary data of a single-chip fabrication.
-The die size is 1.8 mm $\times$ 2.0 mm.
-The number of equivalent logic gates used in the chip is only 817, which has a great potential to reduce the fabrication cost when it comes to a mass production.
-The chip size is determined by the number of IOs in this case.
+%The die size is 1.8 mm $\times$ 2.0 mm.
+%The number of equivalent logic gates used in the chip is only 817, which has a great potential to reduce the fabrication cost when it comes to a mass production.
+%The chip size is determined by the number of IOs in this case.
 We look forward to having further reduction in the chip size by removing the redundant logic and IOs temporarily included for debugging purpose only.
 
 \begin{table}
@@ -249,8 +270,8 @@ Finally, we measure the power consumption of the prototype including the ASIC.
 Table~\ref{table:power_summary} summarizes the power consumption of each component.
 The ASIC itself consumes 1.6 mW while the other peripherals consume 6.4 mW.
 In total, the prototype consumes 8 mW, which is low enough to use a small size PV cell (22 mm by 7 mm, 12.92 mW@$V_{MPP}$-3.4 V.)
-A production-level implementation with a lower-power technology and a custom electronic ink display will make the power consumption several times lower.
-
+%A production-level implementation with a lower-power technology and a custom electronic ink display will make the power consumption several times lower.
+%
 The final implementation will have a single chip ASIC including the NVRAM, an e-ink display and the optimal-size of PV cell on a flexible PCB. This is being lead by a company through technology transfer.
 
 \begin{table}
@@ -275,7 +296,8 @@ and UV meter 	&in the ASIC chip 				&\\ \hline
 \label{fig:UV_measure}
 \end{figure}
 
-To verify the functionalities and usefulness of SmartPatch, we compare the UV irradiance on various skin areas in the morning and afternoon as shown in Fig.~\ref{fig:UV_measure}. We measure UV irradiance on various skin areas in the morning and afternoon as shown in Fig. 9. \textcolor{red}{We measure the UV irradiation on the wrists, chests, shoulders, and from the ground as a reference (Fig.~\ref{fig:UV_measure}.)} The skin area of interest in the experiment is the shoulder, and SmartPatch is attached to the shoulder skin. Other UV meters are carried or attached as designed. For instance, a watch type UV meter measures the UV irradiance on the wrist. The UV irradiance to the ground increases by the angle to the Sun that is the maximum at 1:36 pm (13:36) in the experiments.
+\textcolor{red}{To verify the functionalities and usefulness of SmartPatch, we compare the UV irradiance on various skin areas in the morning and afternoon as shown in Fig.~\ref{fig:UV_measure}. We measure the UV irradiation on the wrists, chests, shoulders, and from the ground as a reference.}
+The skin area of interest in the experiment is the shoulder, and SmartPatch is attached to the shoulder skin. Other UV meters are carried or attached as designed. For instance, a watch type UV meter measures the UV irradiance on the wrist. The UV irradiance to the ground increases by the angle to the Sun that is the maximum at 1:36 pm (13:36) in the experiments.
 
 Of course, the UV irradiance to the skin area is different by activities.
 For example, playing soccer, working and walking outdoor cause high UV irradiance to the shoulder and chest as shown in Fig.~\ref{fig:UV_measure}(a).
