@@ -5,6 +5,7 @@
 \usepackage[usenames, dvipsnames]{color}
 \usepackage{graphicx}
 \usepackage{subcaption}
+\usepackage{ulem}
 \renewcommand{\figurename}{Fig.}
 \renewcommand*{\thetable}{\Roman{table}}
 
@@ -21,45 +22,55 @@ The authors would like to thank the reviewers for the precious comments and sugg
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{description}
 \item [C1: ] Is the number of modes a significant limitation of SmartPatch? It would also help to understand this if the amount MED varies with skin type is shown. If MED varies significantly between pale and very dark skin, and since SPF is multiplicative with maximum UV exposure time I would assume that the four modes does not cover the user space well. You could easily have more than two bins for skin type and way more sunscreen options (SPF 30+) that would significantly alter maximum UV exposure time.  
-\item [R1: ] SmartPatch is not limited by the number of modes. In the figure, we only show a 4-mode for the simplification but the number of mode can be reconfigurable using the SmartPatch's NVRAM. We revise the description of mode configuration in Section
+\item [R1: ] SmartPatch is not limited by the number of modes. In Fig.~5(b), we only show 4 modes for the simplification but the number of mode is expanded by the use of NVRAM. We revise the description of mode configuration in Section
 III-C for better understanding as follows:\\
 
-The current version of SmartPatch embeds two user interface functions: device reset and operation mode change.
-Adding new features does not incur major design change.
-Fig.~7 shows examples of the switch-less user interface functions.
-Blocking the UV sensor for more than a second resets SmartPatch and starts a new mode configuration.
-\textcolor{red}{Then, the user is supposed to repeat the UV sensor blocking until the mode is set to a desired one. In the figure, the number of mode is four, but it can be easily changeable by using the NVRAM
-repeating the reset motion -- blocking the UV sensor more than one second -- makes the device escape from the mode configuration and start a new UV irradiance accumulation.}~\\
+The current version of SmartPatch embeds two user interface functions: device reset and operation mode change. Adding new features does not incur major design change. Fig.~6 shows examples of the switch-less user interface functions. Blocking the UV sensor for more than a second resets SmartPatch and starts a new mode configuration. \textcolor{red}{The user is supposed to repeat blocking the UV sensor until the desired mode is set. Repeating the reset motion -- blocking the UV sensor longer than a second -- makes the device escape from the configuration mode and start a new UV irradiation measurement. In Fig.~6, the number of mode is set to four, but it is easily expanded by the use of NVRAM.}~\\
 
-\item [C2: ] ``The existing UV meters under- or overestimates the accumulation of UV irradiance.'' I would assume that existing UV meters is accurate with respect to the part of the body it is monitoring. This should be corrected. In addition, is the shoulder the most appropriate place to measure the UV for these activities (e.g., chatting on a bench, walking outdoors, seated on a grass field)? For a person that is wearing a typical shirt, is the UV measurements in Fig. 9 given for their shoulder under their shirt? Or is the use-case more specific than that (e.g., tank tops or shirt-less)?
-\item [R2: ] The UV irradiance measurement directly on the skin area of interest enhances the measurement accuracy. However, the existing UV meters do not show the exact amount of accumulated UV irradiance because every skin surface has a different perpendicular angle to the Sun and is subject to continuous shading change. For example, An wrist strap type UV meter underestimates the accumulation of the UV irradiation on the shoulder. 
+\item [C2: ] ``The existing UV meters under- or overestimates the accumulation of UV irradiance.'' I would assume that existing UV meters are accurate with respect to the part of the body it is monitoring. This should be corrected. In addition, is the shoulder the most appropriate place to measure the UV for these activities (e.g., chatting on a bench, walking outdoors, seated on a grass field)? For a person that is wearing a typical shirt, is the UV measurements in Fig. 9 given for their shoulder under their shirt? Or is the use-case more specific than that (e.g., tank tops or shirt-less)?
+\item [R2: ] 
+%It is the most important to measure the UV irradiance directly on the skin area of interest to enhance the measurement accuracy. However, the existing UV meters only measure the UV irradiance of limited positions of the human body (e.g., wrist and chest,) and the measurement is under- or overestimated by the skin area, which has a different perpendicular angle to the Sun and is subject to continuous shading change. For example, an wrist strap type UV meter underestimates the accumulation of the UV irradiation on the shoulder. 
+Existing UV irradiance meters can be accurate if their UV sensors are positioned on the exact location of a particular skin with the same perpendicular angle to the Sun. However, due to the inherently limited form factor, weight and volume of existing UV meters, most of them only measure the UV irradiance on limited positions of the human body (e.g., wrist and chest.) In addition, they have different perpendicular angles to the Sun, and the angles are changed significantly depending on the moving and activity. Therefore, the measurement can be under or overestimated by the skin area. For example, an wrist strap type UV meter underestimates the accumulation of the UV irradiation on the shoulder. 
 ~\\
 
 \item [C3: ] NVRAM should be defined at its first use.
-\item [R3: ] We define the non-volatile RAM in Section III-A.\\
+\item [R3: ] We defined NVRAM (the non-volatile RAM) in the third row of the third paragraph in Section III-A as following:
+
+\textit{The power management unit (PMU) detects power interruption and let the non-volatile RAM (NVRAM) save the necessary context [10].}\\
 ~\\
 
 \item [C4:] The English and phrasing should be carefully reviewed. For example, it was difficult to parse ``We measure the UV irradiance on the wrists, chests… as a reference with several UV irradiance meters including SmartPatch (Fig. 2.).'' 
 
-\item [R4: ] We modified the manuscript. \\
+\item [R4: ] We revised the whole manuscript, and we colored modified sentences. \\
 
 \underline{We modify Section III-C in the manuscript as:}\\
-We measure UV irradiance on various skin areas in the morning and afternoon as shown in Fig. 9. \textcolor{red}{We measure the UV irradiance on the wrists, chests, shoulders, and the ground as a reference with SmartPatch (Fig. 2.)} The skin area of interest in the experiment is the shoulder, and SmartPatch is attached to the shoulder skin. Other UV meters are carried or attached as designed. For instance, a watch type UV meter measures the UV irradiance on the wrist. The UV irradiance to the ground increases by the angle to the Sun that is the maximum at 1:36 pm (13:36) in the experiments.\\
+\textcolor{red}{To verify the functionalities and usefulness of SmartPatch, we compare the UV irradiance on various skin areas in the morning and afternoon as shown in Fig.~7. We measure the UV irradiation on the wrists, chests, shoulders, and from the ground as a reference.}
+The skin area of interest in the experiment is the shoulder, and SmartPatch is attached to the shoulder skin. Other UV meters are carried or attached as designed. For instance, a watch type UV meter measures the UV irradiance on the wrist. The UV irradiance to the ground increases by the angle to the Sun that is the maximum at 1:36 pm (13:36) in the experiments.
 ~\\
 
 \item [C5:] Also, ``In cooperation with a sunscreen with a specific SPF and skin type, which are user programmable'' seems to imply that users can program their sunscreen's SPF and change their skin type and cooperation would imply that sunscreen can make their own actions. I believe it should be more along the lines of: SmartPatch can aid the user in when to reapply sunscreen based on the user's skin type and sunscreen SPF.
 
-\item [R5: ] SmartPatch can aid the user to program the sunscreen SPF and user's skin type. SmartPatch let users know the maximum exposure time when the user reapplies sunscreen every two hours. We modify the beginning of Section III in the manuscript as:
+\item [R5: ] 
+
+SmartPatch let users know the remaining exposure time not the time to reapply the sunscreen. The sunscreen is recommended to be reapplied every two hours because the sunscreen is easily washed away by water or sweat. The sunscreen reduces the chance of skin damage when it is perfectly applied to the skin. Please see the following description in the fifth paragraph in Section II-A:\\
+
+\textit{The A bigger number of SPF means high reduction of UV absorption and reduces chances of skin damage. For example, a sunscreen with SPF 15 blocks 93\% of UV irradiance and extends the time to produce erythema about 15 times longer. However, UV irradiance is still accumulated in the skin even with a sunscreen regardless of the SPF, and it may eventually incur skin damage.}\\
+
+The remaining exposure time not to receive skin damage is calculated based on the sunscreen SPF and user's skin type, and these parameters are programmable in SmartPatch. We modify the beginning of Section III in the manuscript as:
 
 \begin{itemize}
 \item Covering both the UVA and UVB spectrum,
 \item Having a small form factor and possibly disposable,
-\item \textcolor{red}{Aiding users to program the sunscreen SPF and user's skin type,}
+\item \textcolor{red}{Programming the sunscreen SPF and user's skin type,}
 \item Calculating the maximum UV exposure time based on the UV irradiance and skin type,
 \item A patchable design to measure the actual cumulative UV irradiance on the exact skin area of interest,
 \item Self-powered by a PV cell with the minimum possible size, and
 \item No use of a power converter nor significant energy storage.
 \end{itemize}
+
+
+
+when the user applies sunscreen sufficiently. 
 
 \end{description}
 
@@ -72,66 +83,75 @@ We measure UV irradiance on various skin areas in the morning and afternoon as s
 \begin{description}
 \item [C1: ] In abstract, you should address the motivation, your approach, and experimental results.
 
-\item [R1: ] We update abstract as:
+\item [R1: ] As the reviewer suggested, we update abstract as:
 
-\textcolor{red}{Caring ultraviolet irradiation is very important for human because it affects human's body positively and negatively at the same time. In this article, we introduce SmartPatch, a patchable and self-powered smart UV level meter supported by the two key technologies; storage-less and converter-less energy harvesting and switch-less interface. Unlike existing UV level meters, SmartPatch provides more scientific measures to avoid skin damages with extremely low-cost solution, and can efficiently cooperate with various Sun protection factor (SPF) sunscreen lotions and skin types which are varying on each person.}
+\textcolor{red}{Caring ultraviolet (UV) irradiance is very important for humans because UV irradiance has both positive and negative effects to human bodies. In this article, we introduce SmartPatch, a patchable and self-powered UV irradiation meter that informs the current UV level and cumulative UV irradiance. Its self-powering, small-form-factor, light-weight, and low-cost features are based on the storage-less and converter-less energy harvesting and the switch- less user interface technologies.}\\
 ~\\
 
-\item [C2: ] In the introduction, you can state your approach and the comparisons between your approach and the existing state-of-the-art approach.
-\item [R2: ] We totally revise the introduction (Section I) to state our approach: 1) what normal people usually do to avoid excessive UV irradiance, 2) need more scientific information considering individual's characteristics and 3) introduction to SmartPatch a solar powered patchable smart UV level meter. In addition, we revise the backgrounds (Section II-A) to compare our implementation, SmartPatch, with the existing state-of-the-art.\\
+\item [C2: ] In Introduction, you can state your approach and the comparisons between your approach and the existing state-of-the-art approach.
+\item [R2: ] As the reviewer suggested, we totally revise Introduction (Section I) to state our approach: 1) what normal people usually do to avoid excessive UV irradiance, 2) why we need more scientific information to consider individual's characteristics and 3) brief introduction to SmartPatch. In addition, we revise the backgrounds (Section II-B) to compare our implementation, SmartPatch, with the existing state-of-the-arts.\\
 
-\underline{We modify the second, third and fourth paragraphs in Section I in the manuscript:}\\
-\textcolor{red}{In order to safely do any outdoor activity without experiencing skin damage, people should know about the maximum UV exposure time which is mainly determined by the intensity of UV irradiance and few individual factors of the user. When a human stays under the Sun over the maximum UV exposure time, the human may experiences skin damages.}\\
+\uline{We modify the second and third paragraphs in Section I to state 1) what normal people usually do to avoid excessive UV irradiance:}\\
 %
-\textcolor{red}{The intensity of UV can be presented with a wavelength or simply categorized with UV index (UVI)for easy recognition and use. Region-based daily UVIs are generally announced by the government or weather forecast companies so that people can do a proper-level of protection. There are general guidelines to avoid skin damages depending on the UVI in Fig.~1. People should just cover their skin from the UV irradiance to avoid skin damages if the UVI is under 6 while people should minimize Sun irradiance if it is over 6. Although these general guidelines with a region-based UVI give a brief guideline what people should do, it does not give any individualized maximum UV exposure time considering time- and region-varying UVI as well as the individual's unique characteristics.}\\
-%
-\textcolor{red}{Scientifically, the maximum UV exposure time is determined by the cumulative UV exposure as well as individual's characteristics such as skin type and the use of sunscreen lotions, which are even more difficult to get without using any UV measurement tools and technologies. In addition, the cumulative UV exposure is varying even on the position of the body and angle to the Sun. Thus it is crucial to directly measure the actual UV irradiance and cumulative irradiance on the skin area of interest by attaching the measurement tool on the skin area of interest. The details about the scientific impacts of UV irradiance to human skin considering the individual's characteristics will be given at the later section.}\\
+\textcolor{red}{In order to safely perform outdoor activities without experiencing skin damage, people should be aware of  the maximum UV irradiation level, which is mainly determined by the UV irradiance intensity accounting the angle between the Sun and the skin surface integrated over the UV exposure time, in addition to the individual factors such as skin color. Human skins can endure a certain level of UV irradiation, and over-irradiation may create skin damage.}
 
-\underline{We modify the fifth and sixth paragraphs in Section I in the manuscript as:}\\
-\textcolor{red}{In this paper, we introduces SmartPatch, a solar powered  and patchable smart UV level meter that guides people to safely play outdoor activities without concerning about their skin damages. The proposed SmartPatch is supported by two key technologies. The first key technology is a storage-less and converter-less energy harvesting~[9] that does not require any battery nor voltage converter in energy harvesting logics. The second technology is a switch-less user interface to minimize the form-factor as well as the implementation cost. Instead of using any switches, SmartPatch detects the pre-defined patterns of artificial UV-level changes on the sensor and then control SmartPatch according to the generated patterns. All the proposed technologies are implemented in a single chip for achieving a patchable device with extremely low-cost and small form factor.\\
-% 
-The key functions of Smartpatch are 1) display the real-time UVI, 2) display the remaining time to avoid skin damage, and 3) execution mode change or parameter programming by the user's skin type and the SPF of sunscreen lotions using a proposed switch-less interface or user's Smartphone. The functionalities and usefulness of SmartPatch are verified by measuring the UV level on several positions of the body during the various types of outdoor activities.}\\
-~\\
+\textcolor{red}{The intensity of UV irradiance is often quantified by the UV index (UVI). Region-based daily UVIs are commonly broadcasted through weather forecast channels. There are general guidelines to avoid skin damage classified with  the UVI as shown in Fig.~1. For example, people are recommended to cover the skin when the UVI is under 6 while it is recommended to stay indoor when the UVI  is over 6. However, such general guidelines do not explain a personalized maximum allowable UV exposure time.}\\
 
-\underline{We modify Section II-A in the manuscript as:}\\
-\textcolor{red}{There are numerous portable devices that measure the current UV irradiance as shown in Fig.~2(a).
-These devices can only measure the instant UV level only while the measurement of cumulative UV exposure is actually necessary in real-life. More advanced devices shown in Fig.~2(b) additionally inform the result of the UV irradiance accumulation. They are capable of displaying instantaneous UVI and calculating the maximum UV exposure time based on the skin type and SPF.
-However, these devices typically include a battery and should communicate with smartphones~[5,6] to check measured information as well as to configure the devices. In addition, the shapes of the devices are often a wrist strap, a watch, a pendant, or a badge, and such devices only measure the UV irradiance of limited position of the body. Even on a same position of the body, they do not show the exact amount of accumulated UV irradiance because every skin surface has a different perpendicular angle to the Sun and is subject to continuous shading change.}
+\uline{We modify the fourth paragraph in Section I to state 2) need more scientific information considering individual's characteristics:}\\
 %
-As shown in Fig.~3, each skin area has different UV irradiance due to the angle to the Sun.
-In addition, partial shading in different areas of the skin continuously occurs by trees, buildings, other body parts, clothes, and so forth. For instance, people often experience skin damages on their shoulders while the other skin areas are manageable even if the whole body has been exposed to the Sun.\\
+\textcolor{red}{UV exposure time is an easy metric for normal people unless they can access a scientific measure of UV irradiation, but it is far inaccurate in general to estimate the UV irradiation on the skin. Furthermore, individual characteristics such as the skin type make it more complicated to understand the current UV irradiation. Additional UV protection such as sunscreen lotion makes it even more difficult. Once again, UV irradiation is significantly variable by the angle between the Sun and the exposed skin surface even under the same UV radiation strength. Thus, it is crucial to directly measure the UV irradiance and irradiation on the target skin surface of interest, \textit{i.e.} a UV sensor is directly mounted on the skin surface of interest, and the UV irradiance should be integrated over time as the UV irradiance on the skin changes all the time by the environmental factors as well as the body movements. Unfortunately, to the best of our knowledge, existing UV measurement tools for normal people (excluding a laboratory measurement setup) can hardly achieve this goal.}\\
+
+\uline{We modify the fifth and sixth paragraphs in Section I to state 3) introduction to SmartPatch a solar powered patchable smart UV level meter:}\\
+%
+\textcolor{red}{In this article, we introduce SmartPatch, a solar-powered and patchable smart UV irradiation meter that informs both the current UV irradiance and irradiation. SmartPatch is supposed to attach on the skin surface of interest, the UV measurement meets the above mentioned requirements such as the angle to the Sun, environmental change and body movement. Two key technologies are behind the proposed SmartPatch. The first is a storage-less and converter-less energy harvesting~[1] that does not require a battery nor a voltage converter for solar energy harvesting. The second is a switch-less user interface. These two technologies can significantly reduce both volumetric and gravimetric overheads as well as the manufacturing cost.
+SmartPatch detects the UV and solar irradiance correlation patterns, which is not natural but close to the predefined values. Such artificial patterns are generated when the user blocks the Sun only to the UV sensor area by a finger. SmartPatch recognizes such actions as if physical switches are pressed by the user. A smartphone app can also generate the artificial patterns by the built-in flashlight. The two technologies make it possible to implement SmartPatch with simple integrated circuits in a single chip, and a single chip implementation achieves a patchable UV meter extremely low-cost, low profile, small, and light.}
+ 
+\textcolor{red}{The main functions of SmartPatch include 1) displaying the current UVI, 2) displaying the remaining UV irradiation to avoid skin damage, and 3) mode change or parameter setting for the personalized skin type and the SPF (Sun protection factor) of the currently applied sunscreen lotion. We verified the functionalities and usefulness of SmartPatch performing various outdoor activities.}\\
+
+\underline{We modify Section II-B to compare our implementation, SmartPatch, with the existing state-of-the-art:}\\
+\textcolor{red}{There are various portable UV meters as shown in Fig.~2(a). Most UV meters can only measure the instant UV irradiance level while the measurement of UV irradiation is actually meaningful as described above. Some advanced UV meters shown in Fig.~2(b) additionally inform UV irradiation. They are capable of displaying the current UVI and calculating the maximum UV exposure time based on the skin type and SPF. However, these devices typically include a battery and need to communicate with a smartphone~[6], [7] for measurement as well as the device setting. In addition, the types of the devices are often a wrist strap, a watch, a pendant, or a badge. However, such types can only measure the UV irradiance of limited positions of the human body. It goes without saying that each different part of human body and thus the skin surface should have different UV irradiance even under the same environment.} As shown in Fig.~3, each skin surface area has a distinctly different amount of UV irradiance due to the different angle to the Sun. In addition, partial shading can continuously occur on each skin surface area by trees, buildings, other body parts, clothes, and so forth. For instance, people often experience skin damages on their shoulders while the other skin areas (\textit{e.g.}, a wrist that has the UV strap) are manageable even if the whole body has been exposed to the Sun.\\
 ~\\
 
 \item [C3: ] In Section II, authors state that "However they (devices) does not show the exact amount of accumulated UV irradiance." \\
 1. Maybe the user does not care the exact amount of UV. \\
 2. How do you know these devices cannot measure the exact amount? Do you have any literatures to support it?\\
 3. In experiments, you also can compare your device with the existing devices to show how accuracy your device is.
-\item [R3: ] 1. Yes. The user want to know the exact remaining UV exposure time instead of the amount of UV irradiance.\\
-2. Typical badge or bracelet types of UV meters cannot measure the exact amount of UV irradiance on the skin area of interest. For example, conventional UV meters estimate the amount of UV irradiance on the shoulder based on the amount of UV irradiance on the chest or wrist.\\
-3. We did experiments to show how much our device is accurate in Section IV in the original manuscript as:\\
+\item [R3: ] 
+%1. The user care remaining exposure time not to experience skin damage instead of the amount of UV irradiance.\\
+%2. Typical badge or bracelet types of UV meters cannot measure the exact amount of UV irradiance on the skin area of interest. For example, they cannot measure the accurate amount of UV irradiance on the shoulder. We compare the UV irradiance on various skin areas (a wrist, chest, shoulder, and the ground) in Fig.~7.\\
+%3. To verify the functionalities and usefulness of SmartPatch, we compare the UV irradiance on various skin areas in the morning and afternoon as shown in Fig.~7. We measure the UV irradiation on the wrists, chests, shoulders, and from the ground as a reference. Please see fourth, fifth and sixth paragraphs in Section IV:\\
+%
+1. We are sorry for the confused sentence. For clear understanding, we have significantly revise this section.\\
+2. Typical UV meters cannot be attached on the skin area of interest, and they cannot measure the accurate amount of UV irradiance on that area.\\
+3. To verify the functionalities and usefulness of SmartPatch, we compare the UV irradiance on various skin areas in different times of a day (in the morning and afternoon) as shown in Fig.~7. We measure the UV irradiation on the wrists, chests, shoulders, and from the ground as a reference. Please see fourth, fifth and sixth paragraphs in Section IV:\\
 
-\textit{We observe that existing UV meters under- or overestimate the accumulation of UV irradiance. This implies that watch type UV meters underestimate UV accumulation on the shoulder up to 16\%, which may cause 50\% more chances of erythema symptoms if UV exposure lasts until the watch type UV meters indicate the maximum exposure time is over~[2].}
+\textit{\textcolor{red}{To verify the functionalities and usefulness of SmartPatch, we compare the UV irradiance on various skin areas in the morning and afternoon as shown in Fig.~7. We measure the UV irradiation on the wrists, chests, shoulders, and from the ground as a reference.} The skin area of interest in the experiment is the shoulder, and SmartPatch is attached to the shoulder skin. Other UV meters are carried or attached as designed. For instance, a watch type UV meter measures the UV irradiance on the wrist. The UV irradiance to the ground increases by the angle to the Sun that is the maximum at 1:36 pm (13:36) in the experiments.\\
+%
+Of course, the UV irradiance to the skin area is different by activities. For example, playing soccer, working and walking outdoor cause high UV irradiance to the shoulder and chest as shown in Fig.~7(a). Unfortunately, the watch type UV meter on the wrist does not reflect the UV irradiance variation on the skin area of interest, i.e., shoulders, by the activities and the angle to the Sun. However, it is impossible to put the watch type UV meter on the shoulder. The UV irradiance to the shoulder is sometimes even larger than the UV irradiance to the ground when the shoulder has a perpendicular angle to the Sun.\\
+%
+We observe that existing UV meters under- or overestimate the accumulation of UV irradiance. This implies that watch type UV meters underestimate UV accumulation on the shoulder up to 16\%, which may cause 50\% more chances of erythema symptoms if UV exposure lasts until the watch type UV meters indicate the maximum exposure time is over~[3].}\\
 ~\\
 
 \item [C4: ] Also in Section II, the authors state that the reason why these devices are inaccurate is because every skin surface has a different perpendicular angle to the Sun. In your device, the reviewer wonders how you address this issue.
-\item [R4: ] We directly measure the amount of UV irradiance on the skin area of interest. We implement a patchable UV level meter to attach on the skin area of interest. There are two key technologies to enable this. The first key technology is a storage-less and converter-less energy harvesting~[9] that does not require any battery nor voltage converter in energy harvesting logics. The second technology is a switch-less user interface to minimize the form-factor as well as the implementation cost. Instead of using any switches, SmartPatch detects the pre-defined patterns of artificial UV-level changes on the sensor and then control SmartPatch according to the generated patterns. Please check the below modified paragraph.\\  
+\item [R4: ] We implement a patchable UV level meter to directly attach on the skin area of interest. Two key technologies are behind the proposed SmartPatch to be a patchable device. The first is a storage-less and converter-less energy harvesting~[1] that does not require a battery nor a voltage converter for solar energy harvesting. The second is a switch-less user interface. These two technologies can significantly reduce both volumetric and gravimetric overheads as well as the manufacturing cost. To make the uniqueness of our work clear, we revised Introduction as follow:\\
 
 \underline{We modify the fifth and sixth paragraphs in Section I in the manuscript as:}\\
-\textcolor{red}{In this paper, we introduces SmartPatch, a solar powered  and patchable smart UV level meter that guides people to safely play outdoor activities without concerning about their skin damages. The proposed SmartPatch is supported by two key technologies. The first key technology is a storage-less and converter-less energy harvesting~[9] that does not require any battery nor voltage converter in energy harvesting logics. The second technology is a switch-less user interface to minimize the form-factor as well as the implementation cost. Instead of using any switches, SmartPatch detects the pre-defined patterns of artificial UV-level changes on the sensor and then control SmartPatch according to the generated patterns. All the proposed technologies are implemented in a single chip for achieving a patchable device with extremely low-cost and small form factor.\\
-% 
-The key functions of SmartPatch are 1) display the real-time UVI, 2) display the remaining time to avoid skin damage, and 3) execution mode change or parameter programming by the user's skin type and the SPF of sunscreen lotions using a proposed switch-less interface or user's Smartphone. The functionalities and usefulness of SmartPatch are verified by measuring the UV level on several positions of the body during the various types of outdoor activities.}\\
+\textcolor{red}{In this article, we introduce SmartPatch, a solar-powered and patchable smart UV irradiation meter that informs both the current UV irradiance and irradiation. SmartPatch is supposed to attach on the skin surface of interest, the UV measurement meets the above mentioned requirements such as the angle to the Sun, environmental change and body movement. Two key technologies are behind the proposed SmartPatch. The first is a storage-less and converter-less energy harvesting~[1] that does not require a battery nor a voltage converter for solar energy harvesting. The second is a switch-less user interface. These two technologies can significantly reduce both volumetric and gravimetric overheads as well as the manufacturing cost.
+SmartPatch detects the UV and solar irradiance correlation patterns, which is not natural but close to the predefined values. Such artificial patterns are generated when the user blocks the Sun only to the UV sensor area by a finger. SmartPatch recognizes such actions as if physical switches are pressed by the user. A smartphone app can also generate the artificial patterns by the built-in flashlight. The two technologies make it possible to implement SmartPatch with simple integrated circuits in a single chip, and a single chip implementation achieves a patchable UV meter extremely low-cost, low profile, small, and light.}
 
+\textcolor{red}{The main functions of SmartPatch include 1) displaying the current UVI, 2) displaying the remaining UV irradiation to avoid skin damage, and 3) mode change or parameter setting for the personalized skin type and the SPF (Sun protection factor) of the currently applied sunscreen lotion. We verified the functionalities and usefulness of SmartPatch performing various outdoor activities.}\\
 ~\\
 
 \item [C5: ] In experimental results, you should compare your results with the existing approaches and see what your improvements are in terms of power reduction and accuracy.
-\item [R5: ] As mentioned in R3-3, we describe how our device is accurate compared with other existing approaches in Section IV in the original manuscript as:\\
+\item [R5: ] As mentioned in R3-3, we describe how our device is accurate compared with other existing approaches in Section IV in the manuscript:\\
 
-\textit{We observe that existing UV meters under- or overestimate the accumulation of UV irradiance. This implies that watch type UV meters underestimate UV accumulation on the shoulder up to 16\%, which may cause 50\% more chances of erythema symptoms if UV exposure lasts until the watch type UV meters indicate the maximum exposure time is over~[2].}\\
+\textit{We observe that existing UV meters under- or overestimate the accumulation of UV irradiance.
+This implies that watch type UV meters underestimate UV accumulation on the shoulder up to 16\%, which may cause 50\% more chances of erythema symptoms if UV exposure lasts until the watch type UV meters indicate the maximum exposure time is over~[3].}\\
 
-Also, in terms of power reduction, the power consumption is low enough because SmartPatch is powered by storage-less and converter-less energy harvesting technique, which performs aggressive and rapid dynamic power management (DPM) and tracks the maximum power point (MPP)~[8]. Please check the following revised manuscript. \\
+The power consumption of our product is low enough because the measured power consumption is lower than harvested power with the storage-less and converter-less energy harvesting technique. Please see the third paragraph in Section IV:\\
 
-\underline{We modify the second paragraph in Section III in the manuscript as:}\\
-\textcolor{red}{SmartPatch is powered by storage-less and converter-less energy harvesting technique, which performs aggressive and rapid dynamic power management (DPM) and tracks the maximum power point (MPP)~[8]. In addition, we develop a switch-less user interface for reducing the size and cost of SmartPatch. We take the following design considerations into account for SmartPatch.}
+\textit{Finally, we measure the power consumption of the prototype including the ASIC. Table~III summarizes the power consumption of each component. The ASIC itself consumes 1.6 mW while the other peripherals consume 6.4 mW. In total, the prototype consumes 8 mW, which is low enough to use a small size PV cell (22 mm by 7 mm, 12.92 mW@$V_{MPP}$-3.4 V.) The final implementation will have a single chip ASIC including the NVRAM, an e-ink display and the optimal-size of PV cell on a flexible PCB. This is being lead by a company through technology transfer.}
+
 \end{description}
 
 \end{document}
