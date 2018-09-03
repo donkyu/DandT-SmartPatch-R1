@@ -44,7 +44,7 @@
 \textcolor{red}{A proper level of ultraviolet (UV) \textit{irradiation (time integral of irradiance\footnote{The radiant of UV energy per area.})} on the human skin is essential as it stimulates synthesis of Vitamin D. Human skins can endure a certain level of UV irradiation, but over-irradiation may cause skin damage and can even develop a fatal disease.}
 Therefore, modern society humans are generally warned to avoid excessive UV irradiation even during their daily life.
 
-\textcolor{red}{The intensity of UV irradiance is often quantified by the UV index (UVI). Region-based daily UVIs are commonly broadcasted through weather forecast channels. There are general guidelines to avoid skin damage classified with the UVI as shown in Fig.~\ref{fig:guidelines}. For example, we are recommended to stay indoor when the UVI  is over 6.} 
+\textcolor{red}{The intensity of UV irradiance is often quantified by the UV index (UVI). Region-based daily UVIs are commonly broadcasted through weather forecast channels. There are general guidelines to avoid skin damage classified with the UVI as shown in Fig.~\ref{fig:guidelines}. For example, we are recommended to stay indoor when the UVI  is over 8.} 
 
 \textcolor{red}{In order to safely perform outdoor activities without experiencing skin damage, we should be aware of  the maximum UV irradiation. UVI and UV exposure time are easy metrics to estimate UV irradiation for normal people when a medical-grade scientific measure is not accessible. Although we commonly estimate the UV irradiation by the UV exposure time, it cannot be a reasonable estimation of UV irradiation on a particular skin area because UV irradiation is determined by the time integral of the instantaneous UVI accounting the angle between the Sun, in addition to the individual factors such as skin color. Additional UV protection such as sunscreen lotion makes it even more difficult.} 
 
@@ -76,7 +76,7 @@ Minimal erythema dose (MED), which is widely used to assess skin sensitivity to 
 \begin{equation}
 \text{Effective~UV~irradiance} = \int A(\lambda)E(\lambda) d \lambda
  \end{equation}
-where $A(\lambda)$ is the Sun spectrum, and $E(\lambda)$ is the erythemal effectiveness by the wavelength. \textcolor{red}{Finally, UVI is obtained dividing (1) by 0.025 $mW/m^2$~\cite{CIE}.}
+where \textcolor{red}{$\lambda$ is the wavelength}, $A(\lambda)$ is the Sun spectrum, and $E(\lambda)$ is the erythemal effectiveness by the wavelength. \textcolor{red}{Finally, UVI is obtained dividing (1) by 0.025 $mW/m^2$~\cite{CIE}.}
 \begin{equation}
 \text{UVI}= \frac{\text{Effective~UV~irradiance}}{0.025~mW/m^2.}
  \end{equation}
@@ -92,8 +92,8 @@ A bigger number of SPF \textcolor{red}{implies a higher reduction rate} of UV ab
 \textcolor{red}{Finally, the maximum allowable UV exposure time is calculated by a function of skin type, instantaneous UVI and the SPF of a sunscreen.} 
 \begin{equation} \label{eq: max_exp_time}
 \begin{split}
-\text{Maximum~UV~exposure~time}
-&= \frac{Maximum~UV~irradiation}{UV~irradiance} \\
+\text{\rm Maximum~UV~exposure~time}
+&= \frac{\rm Maximum~UV~irradiation}{\rm Effective~UV~irradiance} \\
 &= \frac{\text{MED}(\text{skin~type})}{\int A(\lambda)E(\lambda)  / \text{MPF}(\lambda) d \lambda} \\
 &\approx \frac{\text{MED}(\text{skin~type})\times \text{SPF}}{\text{UVI} \times 0.025~mW/m^2}.
 \end{split}
@@ -169,7 +169,7 @@ A switch (or button) is a necessary component for providing a function control t
 \label{fig:switchless_interface}
 \end{figure}
 
-Fig.~\ref{fig:switchless_interface} shows the principle of the operation of the proposed switch-less user interface. A natural environmental change always makes both the UV level and PV level and they are highly correlated as shown in Fig.~\ref{fig:switchless_interface}(a). The switch-less user interface action requires simple finger actions to block the UV sensor under a good amount of Sunlight. This makes the UV sensor output level is abruptly decreased as shown in Fig.~\ref{fig:switchless_interface}(b) while the PV cell generates enough power to operate SmartPatch. This action is perceived as if there is a virtual switch and pressed by a finger. A sequence and duration of the block and unblock actions of the UV sensor generate specific patterns. A number of unique patterns perform various user interface functions such as skin type setting, resetting the device, etc.
+Fig.~\ref{fig:switchless_interface} shows the principle of the operation of the proposed switch-less user interface. A natural environmental change always makes both the UV level and PV level and they are highly correlated as shown in Fig.~\ref{fig:switchless_interface}(a). The switch-less user interface action requires simple finger actions to block the UV sensor under a good amount of Sunlight. This makes the UV sensor output level is abruptly decreased as shown in Fig.~\ref{fig:switchless_interface}(b) while the PV cell generates enough power to operate SmartPatch. This action is perceived as if there is a virtual switch and pressed by a finger. A sequence and duration of the block and unblock actions of the UV sensor generate specific patterns. A number of unique patterns perform various user interface functions such as skin type setting, resetting the device, etc. \textcolor{red}{We also provide a smartphone app that automatically generate a sequence of LED light flashing actions. User can just touch the  menu buttons (skin type, reset, etc.) of the app,  which replaces the sequence of finger actions.}
 
 \subsection{SmartPatch design}
 
