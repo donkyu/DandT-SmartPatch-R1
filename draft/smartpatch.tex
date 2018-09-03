@@ -25,7 +25,7 @@
 \maketitle
 
 \begin{abstract}
-\textcolor{red}{Ultraviolet (UV) irradiance affects both positively and negatively to human bodies. We introduce SmartPatch, a self-powered, small-form-factor, light-weight, low-cost, and a patch-type UV meter, that provides a scientific measure of UV radiation and irradiation on a particular skin area. It is powered by a tiny PV (photovoltaic) cell without a battery and a power converter and performs UI (user interface) without a physical switch.} 
+\textcolor{red}{Ultraviolet (UV) irradiance affects human bodies both positively and negatively. We introduce SmartPatch, a self-powered, small-form-factor, light-weight, low-cost, and a patch-type UV meter, that provides a scientific measure of UV radiation and irradiation on a particular skin area. It is powered by a tiny PV (photovoltaic) cell without a battery and a power converter and performs UI (user interface) without a physical switch.} 
 \end{abstract}
 
 % Note that keywords are not normally used for peerreview papers.
@@ -48,7 +48,7 @@ Therefore, modern society humans are generally warned to avoid excessive UV irra
 
 \textcolor{red}{In order to safely perform outdoor activities without experiencing skin damage, we should be aware of  the maximum UV irradiation. UVI and UV exposure time are easy metrics to estimate UV irradiation for normal people when a medical-grade scientific measure is not accessible. Although we commonly estimate the UV irradiation by the UV exposure time, it cannot be a reasonable estimation of UV irradiation on a particular skin area because UV irradiation is determined by the time integral of the instantaneous UVI accounting the angle between the Sun, in addition to the individual factors such as skin color. Additional UV protection such as sunscreen lotion makes it even more difficult.} 
 
-\textcolor{red}{It is crucial to directly measure the UV irradiance and irradiation on the target skin surface of interest, \textit{i.e.} a UV sensor must be directly mounted on the skin surface of interest with the same angle to the Sun. The UV meter continuously read the UV sensor and integrate the value over time. Unfortunately, to the best of our knowledge, existing UV measuring tools for normal people (excluding a laboratory measurement setup) can hardly achieve this goal.}
+\textcolor{red}{It is crucial to directly measure the UV irradiance and irradiation on the target skin surface of interest, \textit{i.e.} a UV sensor must be directly mounted on the skin surface of interest with the same angle to the Sun. The UV meter continuously reads the UV sensor and integrates the value over time. Unfortunately, to the best of our knowledge, existing UV measuring tools for normal people (excluding a laboratory measurement setup) can hardly achieve this goal.}
 
 \begin{figure}
 \centering
@@ -59,24 +59,24 @@ Therefore, modern society humans are generally warned to avoid excessive UV irra
 
 \textcolor{red}{In this article, we introduce SmartPatch, a solar-powered and patchable smart UV irradiation meter that informs both the current UV irradiance and irradiation. SmartPatch is designed to attach on the skin surface of interest, its UV measurement meets the above mentioned requirements such as the angle to the Sun, environmental change and body movement. Two key technologies are behind the proposed SmartPatch. The first is a storage-less and converter-less energy harvesting~\cite{Lee:ASPDAC15} that does not require a battery nor a voltage converter for solar energy harvesting. The second is a switch-less user interface. These two technologies can significantly reduce both volumetric and gravimetric overheads as well as the manufacturing cost.}
 
-\textcolor{red}{SmartPatch detects the correlation between the UV irradiance and solar irradiance. Natural operation keeps a high correlation between them. The correlation is broken if the UV sensor is intentionally blocked by a finger. SmartPatch detects such finger actions and utilizes them for UI (user interface) as if physical switches are pressed by the finger. A smartphone LED flashlight can do the same job. We design an app that  generates pre-defined light flashing patterns so that a single screen touch can replace multiple times of finger actions. These technologies make it possible to implement SmartPatch with simple integrated circuits in a single chip, and a tiny PV cell directly supplies power to the chip without a power converter and a battery. As a result, SmartPatch becomes extremely low-cost, low profile, small, and light.}
+\textcolor{red}{SmartPatch detects the correlation between the UV irradiance and solar irradiance. Natural operation keeps a high correlation between them. The correlation is broken if the UV sensor is intentionally blocked by a finger. SmartPatch detects such finger actions and utilizes them for UI (user interface) as if physical switches are pressed by the finger. A smartphone LED flashlight can do the same job. We design an app that  generates pre-defined light flashing patterns so that a single screen touch can replace multiple times of finger actions. These technologies make it possible to implement SmartPatch with simple integrated circuits in a single chip, and also make it possible for a tiny PV cell to directly supply power to the chip without a power converter and a battery. As a result, SmartPatch becomes extremely low-cost, low profile, small, and light.}
 
  \textcolor{red}{The main functions of SmartPatch include 1) displaying the current UVI, 2) displaying the remaining UV irradiation to avoid skin damage, and 3) mode change or parameter setting for the personalized skin type and the SPF (Sun protection factor) of the currently applied sunscreen lotion. We verified the functionalities and usefulness of SmartPatch performing various outdoor activities.}
 
 \section{Backgrounds}
 
-\subsection{Basics of UV and Skin damage}
+\subsection{Basics of UV and Skin Damage}
 
 Among overall range of UV radiation emitted toward the Earth, only UVA (320 to 400 nm) and UVB (280 to 320 nm) penetrate the atmosphere and affect humans and environment. UVA causes skin aging and wrinkle while UVB causes well-known skin damage such as erythema (redness of the skin), sunburn and skin cancer~\cite{Matsumura:TAP04}.
 
-\textcolor{red}{Human skin has an ability to protect itself from the UV irradiation by skin darkening and thickening. When the skin absorbs UV irradiance, It produces a dark-coloured pigment (called melanin) that delays the skin damage to two to four times. The degree of darkening effects is different by the skin types~\cite{Harrison:Method02}.}
+\textcolor{red}{Human skin has an ability to protect itself from the UV irradiation by skin darkening and thickening. When the skin absorbs UV irradiance, It produces a dark-coloured pigment (called melanin) that delays the skin damage from two to four times. The degree of darkening effects is different by the skin types~\cite{Harrison:Method02}.}
 
 \textcolor{red}{Even though skin damage is caused by the UV irradiation instead of the current UV irradiance, we first have to quantify UV irradiance as  a standard metric to quantify the impact of UV irradiation to the human skin.}
 Minimal erythema dose (MED), which is widely used to assess skin sensitivity to the UV irradiation, is defined as the lowest UV irradiation that produces minimally perceptible erythema~\cite{Diffey:CPPM91}. The relative effectiveness for the MED by the wavelength of UV radiation is defined and introduced by the International Commission on Illumination~\cite{CIE}. Erythema effectiveness by the UVB is 10 to 100 times larger than the effectiveness by the UVA. The Sun spectrum multiplied by the erythemal effectiveness is the effective UV spectrum, and a result integrated over the whole spectrum is the effective UV irradiance and used as a measure of the UV irradiance.
 \begin{equation}
 \text{Effective~UV~irradiance} = \int A(\lambda)E(\lambda) d \lambda
  \end{equation}
-where $A(\lambda)$ is the Sun spectrum, and $E(\lambda)$ is the erythemal effectiveness by the wavelength. \textcolor{red}{Finally, UVI is obtained dividing (1) by 25 $mW/m^2$~\cite{CIE}.}
+where $A(\lambda)$ is the Sun spectrum, and $E(\lambda)$ is the erythemal effectiveness by the wavelength. \textcolor{red}{Finally, UVI is obtained dividing (1) by 0.025 $mW/m^2$~\cite{CIE}.}
 \begin{equation}
 \text{UVI}= \frac{\text{Effective~UV~irradiance}}{0.025~mW/m^2.}
  \end{equation}
@@ -89,7 +89,7 @@ where MPF means monochromatic protection factor.
 
 A bigger number of SPF \textcolor{red}{implies a higher reduction rate} of UV absorption and \textcolor{red}{efficiently} reduces chances of skin damage. For example, a sunscreen with SPF 15 blocks 93\% of UV irradiance and extends the time to produce erythema about 15 times longer. \textcolor{red}{Such a high rate of UV filtering certainly extends UV exposure time without skin damage, UV irradiance is still accumulated in the skin even with a sunscreen regardless of the SPF, and it may eventually incur skin damage.}
 
-\textcolor{red}{Finally, the maximum allowable UV exposure time is calculated by a function of skin type, instanteneous UVI and the SPF of a sunscreen.} 
+\textcolor{red}{Finally, the maximum allowable UV exposure time is calculated by a function of skin type, instantaneous UVI and the SPF of a sunscreen.} 
 \begin{equation} \label{eq: max_exp_time}
 \begin{split}
 \text{Maximum~UV~exposure~time}
@@ -103,7 +103,7 @@ A bigger number of SPF \textcolor{red}{implies a higher reduction rate} of UV ab
 \subsection{UV Meters}
 \textcolor{red}{There are various portable UV meters on the market as shown in Fig.~\ref{fig:UVI_meters}(a). Most UV meters can only measure the instantaneous UVI though we emphasize UV irradiation measurement is meaningful. Some top-of-the-line UV meters (Fig.~\ref{fig:UVI_meters}(b)) additionally inform UV irradiation. They are capable of notifying the maximum allowable UV exposure time based on the instantaneous UVI, skin type and SPF. In other words, the feature basically meets the requirement.  First, however, these devices typically include a battery~\cite{Netatmo, Ultra}. The types of such class devices are often a wrist strap, a watch, a pendant, or a badge. So, second, such devices can only measure the UV irradiance of limited positions of the human body, which is unlikely vulnerable to sunburn.} 
 %
-As shown in Fig.~\ref{fig:UV_exposure_skin}, each skin surface area has a distinctly different amount of UV irradiance due to the different angle to the Sun. In addition, partial shading can continuously occurs on each skin surface area by trees, buildings, other body parts, clothes, and so forth. For instance, people often experience skin damages on their shoulders while the other skin areas (\textit{e.g.}, a wrist that has the UV strap) are manageable even if the whole body has been exposed to the Sun.
+As shown in Fig.~\ref{fig:UV_exposure_skin}, each skin surface area has a distinctly different amount of UV irradiance due to the different angle to the Sun. In addition, partial shading can continuously occur on each skin surface area by trees, buildings, other body parts, clothes, and so forth. For instance, people often experience skin damages on their shoulders while other skin areas (\textit{e.g.}, a wrist that has the UV strap) are manageable even if the whole body has been exposed to the Sun.
 
 \begin{figure}
 \centering
@@ -120,7 +120,7 @@ As shown in Fig.~\ref{fig:UV_exposure_skin}, each skin surface area has a distin
 \label{fig:UV_exposure_skin}
 \end{figure}
 
-\textcolor{red}{Therefore, an accurate UV irradiation meter should position the UV sensor on the exact location of the target skin surface with the same perpendicular angle to the Sun. However, it is not practical to mount a separate UV sensor from the \textcolor{red}{UV meter main unit in Figs.~\ref{fig:UVI_meters}(a) and~\ref{fig:UVI_meters}(b)}. Therefore, a patchable design of a UV irradiance meter is only capable of measuring correct UVI. We easily figure out the most vulnerable skin area and attach the device onto it taking into account the environment, our outfit and activities. Recently, a patchable UV meter has been introduced by a cosmetic company as shown in Fig.~\ref{fig:UVI_meters}(c)~\cite{LOreal}. It is powered by the user's smartphone via Near Field Communication (NFC.) However, the device should equipped with a large-size energy storage such as a supercapacitor and thus a power converter to continuously measure the UV irradiation after it has been powered powering from NFC.}
+\textcolor{red}{Therefore, an accurate UV irradiation meter should position the UV sensor on the exact location of the target skin surface with the same perpendicular angle to the Sun. However, it is not practical to mount a separate UV sensor from the \textcolor{red}{UV meter main unit in Figs.~\ref{fig:UVI_meters}(a) and~\ref{fig:UVI_meters}(b)}. Therefore, a patchable design of a UV irradiance meter is only capable of measuring correct UVI. We easily figure out the most vulnerable skin area and attach the device onto it taking into account the environment, our outfit and activities. Recently, a patchable UV meter has been introduced by a cosmetic company as shown in Fig.~\ref{fig:UVI_meters}(c)~\cite{LOreal}. It is powered by the user's smartphone via Near Field Communication (NFC.) However, the device should equipped with a large-size energy storage such as a supercapacitor and thus a power converter to continuously measure the UV irradiation after it has received energy from NFC.}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{SmartPatch}
@@ -146,7 +146,7 @@ Power converter can be simply removed if the voltage level directly supplied fro
 %In general, the MPP voltage of the PV cell is maintained within a quite narrow range regardless of the solar irradiance.This implies that the PV cell generates almost-constant voltage output, that is a main role of power converters, as long as we keep the track of the MPP current. 
 Fast enough (or fine-grained) DPM makes the PV cell keep the MPP as if the current of the target device is a DC current as long as the average current is the same to the MPP current~\cite{Wang:ASPDAC14}. However, fast DPM may bring non-negligible energy and time overhead during the power state change, and finally the overall energy efficiency is degraded. So a proper control method of the DPM considering the energy overhead is required for enlarging the energy efficiency. We adopt a pulse width modulation (PWM) based DPM in designing of SmartPatch~\cite{Lee:ASPDAC15}. The PWM based DPM controls the duty rate of power-on state compared with power-off state to keep the MPP. This DPM achieves higher energy efficiency as well as the low implementation cost at the same time among various DPM architectures.
 
-DPM is no longer available if the solar irradiance becomes too low, and SmartPatch should be completely shut down. The power management unit (PMU) detects power interruption and let the non-volatile RAM (NVRAM) save the necessary context \cite{Balsamo:TCAD16}. NVRAM is solely powered by the small size capacitor while it saves the context, and thus the proposed storage-less and converter-less MPPT allows to save only a very small capacity of context. Fortunately, SmartPatch needs to save just few bytes of information to the NVRAM.
+DPM is no longer available if the solar irradiance becomes too low, and SmartPatch should be completely shut down. The power management unit (PMU) detects power interruption and allows the non-volatile RAM (NVRAM) to store the necessary context \cite{Balsamo:TCAD16}. NVRAM is solely powered by the small size capacitor while it saves the context, and thus the proposed storage-less and converter-less MPPT allows to save only a very small capacity of context. Fortunately, SmartPatch needs to save just few bytes of information to the NVRAM.
 
 %\begin{figure}
 %\centering
@@ -169,12 +169,12 @@ A switch (or button) is a necessary component for providing a function control t
 \label{fig:switchless_interface}
 \end{figure}
 
-Fig.~\ref{fig:switchless_interface} shows the principle of the operation of the proposed switch-less user interface. A natural environmental change always makes both the UV level and PV level and they are highly correlated as shown in Fig.~\ref{fig:switchless_interface}(a). The switch-less user interface action requires gently blocks on the UV sensor under a sufficient amount of Sunlight. This makes the UV sensor output level is abruptly decreased as shown in Fig.~\ref{fig:switchless_interface}(b) while the PV cell generates enough power to operate SmartPatch. This action is perceived as if there is a virtual switch and pressed by a finger. A sequence and duration of the block and unblock actions of the UV sensor generate specific patterns. A number of unique patterns perform various user interface functions such as skin type setting, resetting the device, etc.
+Fig.~\ref{fig:switchless_interface} shows the principle of the operation of the proposed switch-less user interface. A natural environmental change always makes both the UV level and PV level and they are highly correlated as shown in Fig.~\ref{fig:switchless_interface}(a). The switch-less user interface action requires simple finger actions to block the UV sensor under a good amount of Sunlight. This makes the UV sensor output level is abruptly decreased as shown in Fig.~\ref{fig:switchless_interface}(b) while the PV cell generates enough power to operate SmartPatch. This action is perceived as if there is a virtual switch and pressed by a finger. A sequence and duration of the block and unblock actions of the UV sensor generate specific patterns. A number of unique patterns perform various user interface functions such as skin type setting, resetting the device, etc.
 
 \subsection{SmartPatch design}
 
 We design a prototype of SmartPatch using two key technologies mentioned above.
-Fig.~\ref{fig:block_diagram} shows a block diagram of the SmartPatch prototype consisting of a PV cell, a PMU, control logic, a NVRAM, a UV sensor, a display, and other glue logic. We implement the PMU with a PWM based DPM architecture. The control logic includes a switch-less user interface. The NVRAM stores the result of the UV irradiance accumulation, user skin type and use of a sunscreen. The display is customized to show the current UV irradiance level as well as the remaining UV exposure time before experiencing skin damages.
+Fig.~\ref{fig:block_diagram} shows a block diagram of the SmartPatch prototype consisting of a PV cell, a PMU, control logic, an NVRAM, a UV sensor, a display, and other glue logic. We implement the PMU with a PWM based DPM architecture. The control logic includes a switch-less user interface. The NVRAM stores the result of the UV irradiance accumulation, user skin type and use of a sunscreen. The display is customized to show the current UV irradiance level as well as the remaining UV exposure time before experiencing skin damages.
 
 %\begin{figure}
 %\centering
