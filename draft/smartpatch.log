@@ -1,4 +1,12 @@
+<<<<<<< HEAD
 This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.12.19)  4 SEP 2018 15:03
+=======
+<<<<<<< HEAD
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  3 SEP 2018 17:06
+=======
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.12.19)  4 SEP 2018 13:46
+>>>>>>> f8058f12197b0ab6bbb7d6849c032978bb958dbe
+>>>>>>> 74b9397e3040df7fe2429ec6c801864c4e9a4034
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
