@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.12.19)  4 SEP 2018 13:46
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.12.19)  4 SEP 2018 15:03
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -820,6 +820,9 @@ File: Figures/configuration.pdf Graphic file (type pdf)
 Package pdftex.def Info: Figures/configuration.pdf used on input line 202.
 (pdftex.def)             Requested size: 232.19843pt x 240.48593pt.
 
+Underfull \vbox (badness 1270) has occurred while \output is active []
+
+
 <Figures/prototype.pdf, id=132, 370.38374pt x 163.61125pt>
 File: Figures/prototype.pdf Graphic file (type pdf)
 
@@ -834,19 +837,19 @@ File: Figures/UV_measure.pdf Graphic file (type pdf)
 <use Figures/UV_measure.pdf>
 Package pdftex.def Info: Figures/UV_measure.pdf used on input line 297.
 (pdftex.def)             Requested size: 252.0pt x 253.26729pt.
- (./smartpatch.bbl
+ (./smartpatch.bbl [5 <./Figures/prototype.pdf> <./Figures/UV_measure.pdf>]
 Underfull \hbox (badness 10000) in paragraph at lines 21--23
 []\OT1/ptm/m/n/8 Netatmo, June, $https : / / www . wareable . com / wearable-[]
 tech /
  []
 
-[5 <./Figures/prototype.pdf> <./Figures/UV_measure.pdf>]) [6
+) [6
 
 ] (./smartpatch.aux) ) 
 Here is how much of TeX's memory you used:
  5591 strings out of 493089
  82242 string characters out of 6134841
- 163343 words of memory out of 5000000
+ 162343 words of memory out of 5000000
  8935 multiletter control sequences out of 15000+600000
  55753 words of font info for 104 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -861,7 +864,7 @@ mi10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr
 live/2015/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/local/texlive/2015
 /texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2015/texmf-dis
 t/fonts/type1/urw/times/utmri8a.pfb>
-Output written on smartpatch.pdf (6 pages, 3491475 bytes).
+Output written on smartpatch.pdf (6 pages, 3491773 bytes).
 PDF statistics:
  347 PDF objects out of 1000 (max. 8388607)
  240 compressed objects within 3 object streams
