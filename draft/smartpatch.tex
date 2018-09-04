@@ -203,10 +203,13 @@ Fig.~\ref{fig:block_diagram} shows a block diagram of the SmartPatch prototype c
 	\caption{}
 	\label{fig:configuration}
 	\end{subfigure}
-\caption{(a) A block diagram and (b) reset and mode configurations of SmartPatch.}
+\caption{(a) A block diagram and (b) mode change and parameter setting of SmartPatch.}
 \end{figure}
 
-The current version of SmartPatch embeds two user interface functions: device reset and operation mode change. Adding new features does not incur major design change. Fig.~\ref{fig:configuration} shows examples of the switch-less user interface functions. Blocking the UV sensor for more than a second resets SmartPatch and starts a new mode configuration. \textcolor{red}{The user is supposed to repeat blocking the UV sensor until the desired  mode is set. In Figure~\ref{fig:configuration}, the number of operating modes is designed as four for the demonstration purpose, but it is easily expanded by the use of NVRAM. Repeating the reset finger action (blocking the UV sensor longer than a second) makes the device escape from the configuration mode and start a new UV irradiation measurement.}
+%The current version of SmartPatch embeds two user interface functions: device reset and operation mode change. Adding new features does not incur major design change. Fig.~\ref{fig:configuration} shows examples of the switch-less user interface functions. Blocking the UV sensor for more than a second resets SmartPatch and starts a new mode configuration. \textcolor{red}{The user is supposed to repeat blocking the UV sensor until the desired  mode is set. In Figure~\ref{fig:configuration}, the number of operating modes is designed as four for the demonstration purpose, but it is easily expanded by the use of NVRAM. Repeating the reset finger action (blocking the UV sensor longer than a second) makes the device escape from the configuration mode and start a new UV irradiation measurement.}
+
+\textcolor{red}{SmartPatch embeds two user interface functions: mode change and parameter setting. These functions can be done by blocking the UV sensor for more than a second and less than half a second, respectively. Fig.~\ref{fig:configuration} shows examples of the switch-less user interface functions. The operating modes are measure, reset, skin type setting, and SPF setting. The current design of SmartPatch accommodates up to 10 skin types and up to 10 SPF types for the demonstration purpose, but adding more skin and SPF types can easily be handled in a linear complexity.}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Single-chip implementation}
