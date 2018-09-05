@@ -1,4 +1,16 @@
+<<<<<<< HEAD
 This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  5 SEP 2018 10:13
+=======
+<<<<<<< HEAD
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  4 SEP 2018 17:54
+=======
+<<<<<<< HEAD
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  5 SEP 2018 09:01
+=======
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.12.19)  4 SEP 2018 15:00
+>>>>>>> f92ca40c0f76f609e5719197af409be441321b2a
+>>>>>>> 3d65a7a4624034894384722ebf46b6b3b81f82ad
+>>>>>>> b80b158d730910a8e70b5233aa61badcd6649f33
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -430,7 +442,20 @@ Underfull \hbox (badness 10000) in paragraph at lines 50--56
  []
 
 
+<<<<<<< HEAD
 Underfull \hbox (badness 10000) in paragraph at lines 59--61
+=======
+<<<<<<< HEAD
+Underfull \hbox (badness 10000) in paragraph at lines 56--58
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 56--58
+=======
+Underfull \hbox (badness 10000) in paragraph at lines 64--67
+>>>>>>> 3d65a7a4624034894384722ebf46b6b3b81f82ad
+>>>>>>> b80b158d730910a8e70b5233aa61badcd6649f33
 
  []
 
@@ -439,10 +464,19 @@ Underfull \hbox (badness 10000) in paragraph at lines 59--61
 
  []
 
+<<<<<<< HEAD
+[2] [3]
+Underfull \hbox (badness 10000) in paragraph at lines 85--87
+=======
 [2]
+<<<<<<< HEAD
 Missing character: There is no â in font ptmr7t!
 
 Underfull \hbox (badness 10000) in paragraph at lines 64--67
+=======
+Underfull \hbox (badness 10000) in paragraph at lines 74--75
+>>>>>>> 3d65a7a4624034894384722ebf46b6b3b81f82ad
+>>>>>>> b80b158d730910a8e70b5233aa61badcd6649f33
 
  []
 
@@ -488,7 +522,15 @@ Underfull \hbox (badness 10000) in paragraph at lines 110--111
  []
 
 [4]
+<<<<<<< HEAD
 Underfull \hbox (badness 10000) in paragraph at lines 118--119
+=======
+<<<<<<< HEAD
+Underfull \hbox (badness 10000) in paragraph at lines 107--108
+=======
+Underfull \hbox (badness 10000) in paragraph at lines 122--123
+>>>>>>> 3d65a7a4624034894384722ebf46b6b3b81f82ad
+>>>>>>> b80b158d730910a8e70b5233aa61badcd6649f33
 
  []
 
@@ -518,7 +560,15 @@ Underfull \hbox (badness 10000) in paragraph at lines 147--149
  []
 
 [5]
+<<<<<<< HEAD
 Underfull \hbox (badness 10000) in paragraph at lines 151--152
+=======
+<<<<<<< HEAD
+Underfull \hbox (badness 10000) in paragraph at lines 140--141
+=======
+Underfull \hbox (badness 10000) in paragraph at lines 155--156
+>>>>>>> 3d65a7a4624034894384722ebf46b6b3b81f82ad
+>>>>>>> b80b158d730910a8e70b5233aa61badcd6649f33
 
  []
 
@@ -538,7 +588,15 @@ Underfull \hbox (badness 10000) in paragraph at lines 163--164
  []
 
 [6]
+<<<<<<< HEAD
 Underfull \hbox (badness 10000) in paragraph at lines 166--167
+=======
+<<<<<<< HEAD
+Underfull \hbox (badness 10000) in paragraph at lines 155--156
+=======
+Underfull \hbox (badness 10000) in paragraph at lines 170--171
+>>>>>>> 3d65a7a4624034894384722ebf46b6b3b81f82ad
+>>>>>>> b80b158d730910a8e70b5233aa61badcd6649f33
 
  []
 
@@ -549,11 +607,34 @@ Underfull \hbox (badness 10000) in paragraph at lines 168--169
 
 [7] (./letter.aux) ) 
 Here is how much of TeX's memory you used:
+<<<<<<< HEAD
  4224 strings out of 493014
  66292 string characters out of 6133351
  143775 words of memory out of 5000000
  7693 multiletter control sequences out of 15000+600000
  29785 words of font info for 64 fonts, out of 8000000 for 9000
+=======
+<<<<<<< HEAD
+ 4093 strings out of 492649
+ 63903 string characters out of 6129622
+ 148170 words of memory out of 5000000
+ 7906 multiletter control sequences out of 15000+600000
+ 28200 words of font info for 62 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 42i,8n,40p,959b,296s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/base/8r
+.enc}</usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.
+pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/
+local/texlive/2018/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texl
+ive/2018/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on letter.pdf (7 pages, 73713 bytes).
+=======
+ 4197 strings out of 493014
+ 65725 string characters out of 6133351
+ 143741 words of memory out of 5000000
+ 7670 multiletter control sequences out of 15000+600000
+ 28200 words of font info for 62 fonts, out of 8000000 for 9000
+>>>>>>> b80b158d730910a8e70b5233aa61badcd6649f33
  1141 hyphenation exceptions out of 8191
  42i,9n,40p,959b,457s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/base/8r
@@ -561,7 +642,21 @@ Here is how much of TeX's memory you used:
 pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/
 local/texlive/2016/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texl
 ive/2016/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+<<<<<<< HEAD
 Output written on letter.pdf (7 pages, 156769 bytes).
+=======
+Output written on letter.pdf (7 pages, 73794 bytes).
+=======
+ 42i,8n,40p,959b,304s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/base/8r
+.enc}</usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.
+pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/
+local/texlive/2015/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texl
+ive/2015/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on letter.pdf (7 pages, 75310 bytes).
+>>>>>>> f92ca40c0f76f609e5719197af409be441321b2a
+>>>>>>> 3d65a7a4624034894384722ebf46b6b3b81f82ad
+>>>>>>> b80b158d730910a8e70b5233aa61badcd6649f33
 PDF statistics:
  94 PDF objects out of 1000 (max. 8388607)
  68 compressed objects within 1 object stream
