@@ -25,7 +25,7 @@
 \maketitle
 
 \begin{abstract}
-\textcolor{red}{Ultraviolet (UV) irradiance affects human bodies both positively and negatively. We introduce SmartPatch, a self-powered, small-form-factor, light-weight, low-cost, and a patch-type UV meter, that provides a scientific measure of UV radiation and irradiation on a particular skin area. It is powered by a tiny PV (photovoltaic) cell without a battery and a power converter and performs UI (user interface) without a physical switch.} 
+\textcolor{red}{Ultraviolet (UV) irradiance affects human bodies both positively and negatively. We introduce SmartPatch, a self-powered, small-form-factor, light-weight, low-cost, and a patch-type UV meter, that provides a scientific measure of UV irradiation on a particular skin area. It is powered by a tiny PV (photovoltaic) cell without a battery and a power converter and performs UI (user interface) without a physical switch.} 
 \end{abstract}
 
 % Note that keywords are not normally used for peerreview papers.
@@ -46,7 +46,7 @@ Therefore, modern society humans are generally warned to avoid excessive UV irra
 
 \textcolor{red}{The intensity of UV irradiance is often quantified by the UV index (UVI). Region-based daily UVIs are commonly broadcasted through weather forecast channels. There are general guidelines to avoid skin damage classified with the UVI as shown in Fig.~\ref{fig:guidelines}. For example, we are recommended to stay indoor when the UVI  is over 8.} 
 
-\textcolor{red}{In order to safely perform outdoor activities without experiencing skin damage, we should be aware of  the maximum UV irradiation. UVI and UV exposure time are easy metrics to estimate UV irradiation for normal people when a medical-grade scientific measure is not accessible. Although we commonly estimate the UV irradiation by the UV exposure time, it cannot be a reasonable estimation of UV irradiation on a particular skin area because UV irradiation is determined by the time integral of the instantaneous UVI accounting the angle between the Sun, in addition to the individual factors such as skin color. Additional UV protection such as sunscreen lotion makes it even more difficult.} 
+\textcolor{red}{In order to safely perform outdoor activities without experiencing skin damage, we should be aware of  the maximum UV irradiation. UVI and UV exposure time are easy metrics to estimate UV irradiation for normal people when a medical-grade scientific measure is not accessible. Although we commonly estimate the UV irradiation by the UV exposure time, it cannot be a reasonable estimation of UV irradiation on a particular skin area because UV irradiation is determined by the time integral of the instantaneous UVI accounting the angle to the Sun, in addition to the individual factors such as skin color. Additional UV protection such as sunscreen lotion makes it even more difficult.} 
 
 \textcolor{red}{It is crucial to directly measure the UV irradiance and irradiation on the target skin surface of interest, \textit{i.e.} a UV sensor must be directly mounted on the skin surface of interest with the same angle to the Sun. The UV meter continuously reads the UV sensor and integrates the value over time. Unfortunately, to the best of our knowledge, existing UV measuring tools for normal people (excluding a laboratory measurement setup) can hardly achieve this goal.}
 
@@ -76,9 +76,9 @@ Minimal erythema dose (MED), which is widely used to assess skin sensitivity to 
 \begin{equation}
 \text{Effective~UV~irradiance} = \int A(\lambda)E(\lambda) d \lambda
  \end{equation}
-where \textcolor{red}{$\lambda$ is the wavelength}, $A(\lambda)$ is the Sun spectrum, and $E(\lambda)$ is the erythemal effectiveness by the wavelength. \textcolor{red}{Finally, UVI is obtained dividing (1) by 0.025 $mW/m^2$~\cite{CIE}.}
+where \textcolor{red}{$\lambda$ is the wavelength}, $A(\lambda)$ is the erythemal effectiveness, and $E(\lambda)$ is the Sun spectrum by the wavelength. \textcolor{red}{Finally, UVI is obtained dividing (1) by 25 $mW/m^2$~\cite{CIE}.}
 \begin{equation}
-\text{UVI}= \frac{\text{Effective~UV~irradiance}}{0.025~mW/m^2.}
+\text{UVI}= \frac{\text{Effective~UV~irradiance}}{25~mW/m^2.}
  \end{equation}
 
 We use sunscreens to protect our skin from UVB irradiance. Sun protection factor (SPF) is defined by \textcolor{red}{the fraction of sunburn-producing UV that reach the skin} calculating as a following equation,
@@ -95,7 +95,7 @@ A bigger number of SPF \textcolor{red}{implies a higher reduction rate} of UV ab
 \text{\rm Maximum~UV~exposure~time}
 &= \frac{\rm Maximum~UV~irradiation}{\rm Effective~UV~irradiance} \\
 &= \frac{\text{MED}(\text{skin~type})}{\int A(\lambda)E(\lambda)  / \text{MPF}(\lambda) d \lambda} \\
-&\approx \frac{\text{MED}(\text{skin~type})\times \text{SPF}}{\text{UVI} \times 0.025~mW/m^2}.
+&\approx \frac{\text{MED}(\text{skin~type})\times \text{SPF}}{\text{UVI} \times 25~mW/m^2}.
 \end{split}
 \end{equation}
 
@@ -144,7 +144,9 @@ Most energy harvesting systems adopt energy storage elements as well as power co
 The basic principle of the storage-less and converter-less energy harvesting is to supply the harvested energy from the PV cell directly to the target device using a fine-grained DPM technique. %as shown in Fig.~\ref{fig:architectures}(b). 
 Power converter can be simply removed if the voltage level directly supplied from the PV cell is in the range of the operating voltage for the target device. 
 %In general, the MPP voltage of the PV cell is maintained within a quite narrow range regardless of the solar irradiance.This implies that the PV cell generates almost-constant voltage output, that is a main role of power converters, as long as we keep the track of the MPP current. 
-Fast enough (or fine-grained) DPM makes the PV cell keep the MPP as if the current of the target device is a DC current as long as the average current is the same to the MPP current~\cite{Wang:ASPDAC14}. However, fast DPM may bring non-negligible energy and time overhead during the power state change, and finally the overall energy efficiency is degraded. So a proper control method of the DPM considering the energy overhead is required for enlarging the energy efficiency. We adopt a pulse width modulation (PWM) based DPM in designing of SmartPatch~\cite{Lee:ASPDAC15}. The PWM based DPM controls the duty rate of power-on state compared with power-off state to keep the MPP. This DPM achieves higher energy efficiency as well as the low implementation cost at the same time among various DPM architectures.
+Fast enough (or fine-grained) DPM makes the PV cell keep the MPP as if the current of the target device is a DC current as long as the average current is the same to the MPP current~\cite{Wang:ASPDAC14}. However, fast DPM brings non-negligible energy and time overheads during the power state change, which degrade overall energy efficiency. 
+%Fast enough (or fine-grained) DPM makes the PV cell keep the MPP as if the current of the target device is a DC current as long as the average current is the same to the MPP current~\cite{Wang:ASPDAC14}. However, fast DPM may bring non-negligible energy and time overhead during the power state change, and finally the overall energy efficiency is degraded. So a proper control method of the DPM considering the energy overhead is required for enlarging the energy efficiency. 
+We adopt a pulse width modulation (PWM) based DPM in designing of SmartPatch~\cite{Lee:ASPDAC15}. The PWM based DPM controls the duty rate of power-on state compared with power-off state to keep the MPP. This DPM achieves higher energy efficiency as well as the low implementation cost at the same time.
 
 DPM is no longer available if the solar irradiance becomes too low, and SmartPatch should be completely shut down. The power management unit (PMU) detects power interruption and allows the \textcolor{red}{nonvolatile RAM (NVRAM)} to store the necessary context \cite{Balsamo:TCAD16}. NVRAM is solely powered by the small size capacitor while it saves the context, and thus the proposed storage-less and converter-less MPPT allows to save only a very small capacity of context. Fortunately, SmartPatch needs to save just few bytes of information to the NVRAM.
 
