@@ -14,75 +14,71 @@
 
 \maketitle
 
-The authors would like to thank the reviewers for the  comments and suggestions on the technical contents and presentation of our manuscript ``SmartPatch: A Self-Powered and Patchable Cumulative UV Irradiance Meter,'' submitted to IEEE Design and Test. This revised manuscript has been greatly improved thanks to the reviewers' invaluable advices. We have revised the manuscript faithfully following the reviewers' comments. We include the newly added or significantly modified parts in the revised version of the paper also in Response to Reviewers. We highlight the important technical content changes and set those parts in a red color in the revised paper. Detailed comments and corresponding corrections are listed below:\\
+The authors would like to thank the reviewers for the  comments and suggestions on the technical contents and presentation of our manuscript ``SmartPatch: A Self-Powered and Patchable Cumulative UV Irradiance Meter,'' submitted to IEEE Design and Test. This revised manuscript has been significantly improved thanks to the reviewers' invaluable advices. We have revised the manuscript faithfully following the reviewers' comments. We include the newly added or significantly modified parts in the revised version of the paper also in Response to Reviewers. We highlight the important technical content changes and set those parts in a red color in the revised paper. Detailed comments and corresponding corrections are listed below:\\
 
 \setlength{\parindent}{0cm}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \textbf{General Revision:}
-We found that several important comments raised by the reviewers were due to misunderstanding of the paper contents. Most importantly, it is because our presentation was not proper enough. We completely rewrite Abstract and Introduction to deliver the technical contents more clearly. \\
+We found that some unclear writing in Introduction could cause misleading in the technical contents while dealing with the reviewers' comments. We completely rewrite Introduction to deliver the technical contents more clearly.  We also corrected improper sentences, which were highlighted in red in the revised papers. Due to the page limit of IEEE Design and Test, we removed some less important sentences without hurting the technical contents at all.\\
 
 \textbf{Reviewer 1:}
+\setcounter{figure}{4} 
+\begin{figure}[h]
+\centering
+	\begin{subfigure}{0.45\textwidth}
+	\includegraphics[width=1.0\hsize]{Figures/block_diagram.pdf}
+	\caption{}
+	\label{fig:block_diagram}
+	\end{subfigure}
+~
+	\begin{subfigure}{0.45\textwidth}
+	\includegraphics[width=1.0\hsize]{Figures/configuration.pdf}
+	\caption{}
+	\label{fig:configuration}
+	\end{subfigure}
+\caption{(a) A block diagram and \textcolor{red}{(b) mode change and parameter setting of SmartPatch.}}
+\end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{description}
 \item [C1: ] Is the number of modes a significant limitation of SmartPatch? It would also help to understand this if the amount MED varies with skin type is shown. If MED varies significantly between pale and very dark skin, and since SPF is multiplicative with maximum UV exposure time I would assume that the four modes does not cover the user space well. You could easily have more than two bins for skin type and way more sunscreen options (SPF 30+) that would significantly alter maximum UV exposure time.  
-\item [R1: ] We will revise the paper contents as follows:
-\begin{itemize}
-\item We modify the terms as follows: operating mode and parameter setting.  The ``mode'' used in the previous manuscript is confusing, and thus we change it to parameter setting. The method for parameter setting in the previous manuscript has "state explosion" issue for the user interface because the number of parameters (mode in the previous manuscript) increase by the number of skin types multiplied by the number of SFP types. So, we revised the design to accommodate easy handling of up to 10 skin types or more, and up to 10 SPF types or more.
-\item The operating modes are reset, measure, skin type setting, and SPF setting.
-\item We revise Fig.~5 accordingly.
-\end{itemize}
-
-\underline{We modify the second paragraph of Section III-C in the manuscript as:}\\
-\textcolor{red}{The operation of SmartPatch with the switch-less interface is described in Fig. 5(b). The operating modes are measure, reset, skin type setting, and SPF setting. The mode changes one to the next in a round-robin manner when the UV sensor is blocked by a finger longer than a second. When the current mode is either skin type setting or SPF setting, the current skin type and SPF number change to the next value if the UV sensor is blocked for a while, shorter than a half second. The current design of SmartPatch accommodates up to 10 skin types and up to 10 SPF types for the demonstration purpose, but adding more skin and SPF types can easily be handled in a linear complexity.}
-
+\item [R1: ] First of all, we modified the terms ``mode" to avoid confusion.``Mode" stands for the device \textit{operating modes}: measure, reset, skin type setting, and SPF setting" in the revised manuscript. We use ``parameter" setting that actually sets the skin type and SPF number in the revised manuscript. \\ \\
+We do agree on the reviewer's comment on the user space. The previous implementation of had only one mode for the parameter setting, a combination of the user skin type and SPF number. As the reviewer pointed out, this certainly limits the user space due to a state explosion, not because of the hardware limit but because of time-consuming finger actions to cover a large user space. We looked down the importance of user convenience simply thinking this was for a demonstration purpose. However, we redesigned the control state machine of SmartPatch so that we separately set the skin type and SPF number in two different operating modes. \\ \\
+We sincerely appreciate the reviewer to give us a chance not only for paper revision but also for design revision. We revised both Fig.~5 and related sentences on Page 4 as follows: \\ \\
+\textit{\textcolor{red}{Fig.~\ref{fig:configuration} shows operation modes and user parameter setting for SmartPatch with the switch-less interface. The operating modes are measure, reset, skin type setting, and SPF setting. The mode changes one to the next in a round-robin manner when the UV sensor is blocked by a finger longer than a second. When the current mode is either skin type setting (or SPF setting), the current skin type (or the SPF number) changes to the next value if the UV sensor is blocked for a while, shorter than a half second. A longer blocking causes the mode change to the next while setting the parameter. The current design of SmartPatch accommodates up to 10 skin types and up to 10 SPF types for the demonstration purpose, but adding more skin and SPF types can easily be handled in a linear complexity of the parameter lookup table.}} \\
+%
 \item [C2: ] ``The existing UV meters under- or overestimates the accumulation of UV irradiance.'' I would assume that existing UV meters are accurate with respect to the part of the body it is monitoring. This should be corrected. In addition, is the shoulder the most appropriate place to measure the UV for these activities (e.g., chatting on a bench, walking outdoors, seated on a grass field)? For a person that is wearing a typical shirt, is the UV measurements in Fig. 9 given for their shoulder under their shirt? Or is the use-case more specific than that (e.g., tank tops or shirt-less)?
-\item [R2: ] 
-\begin{itemize}
-\item We modify the sentence as you mentioned. 
-\item In general, we usually get burned by the sun when enjoying leisure on the beach. In particular, when walking on a beach, sitting on a bench or playing football without hanging a top, the most severe sunburn occurs on the shoulders. Therefore, we choose the shoulder as the skin area of interest in the experiment.
-\end{itemize}
-
-\underline{We modify the last paragraph of Section IV in the manuscript as:}\\
-\textcolor{red}{We observe that the existing UV meters are only accurate with respect to the part of the body it is monitoring.} This implies that watch type UV meters underestimate UV accumulation on the shoulder up to 16\%, which may cause 50\% more chances of erythema symptoms if UV exposure lasts until the watch type UV meters indicate the maximum exposure time is over [2].\\
-
-\underline{We modify the fourth paragraph of Section IV in the manuscript as:}\\
-\textcolor{red}{To verify the functionalities and usefulness of SmartPatch, we compare the UV irradiance on various skin areas in the morning and afternoon as shown in Fig.~7. We measure the UV irradiation on the wrists, chests, shoulders, and from the ground as a reference.
-In general, we usually get burned by the sun when enjoying leisure on the beach. In particular, when walking on a beach, sitting on a bench or playing football without hanging a top, the most severe sunburn occurs on the shoulders. Therefore, we choose the shoulder as the skin area of interest in the experiment.}
-SmartPatch is attached to the shoulder skin, and other UV meters are carried or attached as designed. For instance, a watch type UV meter measures the UV irradiance on the wrist. The UV irradiance to the ground increases by the angle to the Sun that is the maximum at 1:36 pm (13:36) in the experiments.\\
-~\\
-
+\item [R2: ] We agree on the reviewer's point. The existing UV meter is still accurate but can measure only limited body areas due to the design. So, it may under- or overestimate the UV irradiation of other body area of interest. We added one sentence on Page 5, the last paragraph of Section IV as follows:\\ \\
+\textit{\textcolor{red}{The existing UV meter is still accurate but can measure only limited body areas due to the design. So, it may under- or overestimate the UV irradiation of other body area of interest.} This implies that watch type UV meters underestimate UV accumulation on the shoulder up to 16\%, which may cause 50\% more chances of erythema symptoms if UV exposure lasts until the watch type UV meters indicate the maximum exposure time is over~[2].}\\ \\
+We also agree on our careless statement about the shoulder. For a more accurate presentation, we modify the the fourth paragraph of Section IV as follows:\\ \\
+\textit{\textcolor{red}{To verify the functionalities and usefulness of SmartPatch, we compare the UV irradiance on various skin areas in the morning and afternoon as shown in Fig.~7. We measure the UV irradiation on the wrists, chests, shoulders, and from the ground as a reference.
+In general, we usually get burned by the Sun when enjoying leisure on the beach. In particular, when walking on a beach, sitting on a bench or playing football, the most severe sunburn occurs on the shoulders if the person wears a sleeveless shirt or topless, for example. Therefore, we choose the shoulder as the skin area of interest in the experiment.}}
+%
 \item [C3: ] NVRAM should be defined at its first use.
 \item [R3: ] We defined NVRAM (the non-volatile RAM) in the third row of the third paragraph in Section III-A as following:
 
-\textit{The power management unit (PMU) detects power interruption and allows the non-volatile RAM (NVRAM) to store the necessary context [10].}\\
+\textit{DPM is no longer available if the solar irradiance becomes too low, and SmartPatch should be completely shut down. The power management unit (PMU) detects power interruption and allows the \textcolor{red}{nonvolatile RAM (NVRAM)} to store the necessary context[10].}\\
 ~\\
 
-\item [C4:] The English and phrasing should be carefully reviewed. For example, it was difficult to parse ``We measure the UV irradiance on the wrists, chestsâ€¦ as a reference with several UV irradiance meters including SmartPatch (Fig. 2.).'' 
+\item [C4:] The English and phrasing should be carefully reviewed. For example, it was difficult to parse ``We measure the UV irradiance on the wrists, chestsâ as a reference with several UV irradiance meters including SmartPatch (Fig. 2.).'' 
 
-\item [R4: ] We revised the whole manuscript, and we colored modified sentences. \\
-
-\underline{We modify Section IV in the manuscript as:}\\
-\textcolor{red}{To verify the functionalities and usefulness of SmartPatch, we compare the UV irradiance on various skin areas in the morning and afternoon as shown in Fig.~7. We measure the UV irradiation on the wrists, chests, shoulders, and from the ground as a reference.} The skin area of interest in the experiment is the shoulder, and SmartPatch is attached to the shoulder skin. Other UV meters are carried or attached as designed. For instance, a watch type UV meter measures the UV irradiance on the wrist. The UV irradiance to the ground increases by the angle to the Sun that is the maximum at 1:36 pm (13:36) in the experiments.\\
+\item [R4: ] We apologize the grammar error in listing items. We revised the sentence as follows: \\ \\
+\textit{\textcolor{red}{We measure the UV irradiation on the wrists, chests, shoulders, and the ground as a reference.} The skin area of interest in the experiment is the shoulder, and SmartPatch is attached to the shoulder skin.}\\
 ~\\
-
 
 \item [C5:] Also, ``In cooperation with a sunscreen with a specific SPF and skin type, which are user programmable'' seems to imply that users can program their sunscreen's SPF and change their skin type and cooperation would imply that sunscreen can make their own actions. I believe it should be more along the lines of: SmartPatch can aid the user in when to reapply sunscreen based on the user's skin type and sunscreen SPF.
 
-\item [R5: ] 
-1. SmartPatch let users know the remaining exposure time not the time to reapply the sunscreen. The sunscreen is recommended to be reapplied every two hours because the sunscreen is easily washed away by water or sweat. The sunscreen reduces the chance of skin damage when it is perfectly applied to the skin. Please see the following description in the fifth paragraph in Section II-A:\\
-
-\textit{A bigger number of SPF \textcolor{red}{implies a higher reduction rate} of UV absorption and \textcolor{red}{efficiently} reduces chances of skin damage. For example, a sunscreen with SPF 15 blocks 93\% of UV irradiance and extends the time to produce erythema about 15 times longer. \textcolor{red}{Such a high rate of UV filtering certainly extends UV exposure time without skin damage, UV irradiance is still accumulated in the skin even with a sunscreen regardless of the SPF, and it may eventually incur skin damage.}}\\
-
-2. The remaining exposure time not to receive skin damage is calculated based on the sunscreen SPF and user's skin type, and these parameters are programmable in SmartPatch. We modify the beginning of Section III in the manuscript as:
-
-\begin{itemize}
+\item [R5: ] We apologize a mistake to make the sentence not properly read. We modify the sentence as follows:
+\textit{\begin{itemize}
+%\item Covering both the UVA and UVB spectrum,
 \item Having a small form factor and possibly disposable,
-\item \textcolor{red}{Programming the sunscreen SPF and user's skin type,}
+\item \textcolor{red}{Allowing user parameter setting such as skin type and SPF number if sunscreen is applied,}
 \item Calculating the maximum UV exposure time based on the UV irradiance and skin type,
 \item A patchable design to measure the actual cumulative UV irradiance on the exact skin area of interest,
 \item Self-powered by a PV cell with the minimum possible size, and
 \item No use of a power converter nor significant energy storage.
-\end{itemize}
+\end{itemize}}
+
+At the beginning of this research, we were going to attempt to notify when to reapply sunscreen. However, after research on sunscreen, it turns out that such notification is hard to achieve. Sunscreen fades away primarily due to friction (rubbing skin), wind and moisture (water and sweat.) So, it is virtually impossible to detect the remaining sunscreen on skin. Cosmetics companies and doctors simply recommend to reapply sunscreen after coming out from water, having a lot of sweat and also after every two hours, for instance. All sunscreens (and also UV irradiation meters) assume sunscreen is properly applied at all times.
 
 \end{description}
 

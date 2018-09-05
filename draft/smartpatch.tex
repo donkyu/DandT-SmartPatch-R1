@@ -131,7 +131,7 @@ As shown in Fig.~\ref{fig:UV_exposure_skin}, each skin surface area has a distin
 \begin{itemize}
 %\item Covering both the UVA and UVB spectrum,
 \item Having a small form factor and possibly disposable,
-\item \textcolor{red}{Programming the sunscreen SPF and user's skin type,}
+\item \textcolor{red}{Allowing user parameter setting such as skin type and SPF number if sunscreen is applied,}
 \item Calculating the maximum UV exposure time based on the UV irradiance and skin type,
 \item A patchable design to measure the actual cumulative UV irradiance on the exact skin area of interest,
 \item Self-powered by a PV cell with the minimum possible size, and
@@ -146,7 +146,7 @@ Power converter can be simply removed if the voltage level directly supplied fro
 %In general, the MPP voltage of the PV cell is maintained within a quite narrow range regardless of the solar irradiance.This implies that the PV cell generates almost-constant voltage output, that is a main role of power converters, as long as we keep the track of the MPP current. 
 Fast enough (or fine-grained) DPM makes the PV cell keep the MPP as if the current of the target device is a DC current as long as the average current is the same to the MPP current~\cite{Wang:ASPDAC14}. However, fast DPM may bring non-negligible energy and time overhead during the power state change, and finally the overall energy efficiency is degraded. So a proper control method of the DPM considering the energy overhead is required for enlarging the energy efficiency. We adopt a pulse width modulation (PWM) based DPM in designing of SmartPatch~\cite{Lee:ASPDAC15}. The PWM based DPM controls the duty rate of power-on state compared with power-off state to keep the MPP. This DPM achieves higher energy efficiency as well as the low implementation cost at the same time among various DPM architectures.
 
-DPM is no longer available if the solar irradiance becomes too low, and SmartPatch should be completely shut down. The power management unit (PMU) detects power interruption and allows the non-volatile RAM (NVRAM) to store the necessary context \cite{Balsamo:TCAD16}. NVRAM is solely powered by the small size capacitor while it saves the context, and thus the proposed storage-less and converter-less MPPT allows to save only a very small capacity of context. Fortunately, SmartPatch needs to save just few bytes of information to the NVRAM.
+DPM is no longer available if the solar irradiance becomes too low, and SmartPatch should be completely shut down. The power management unit (PMU) detects power interruption and allows the \textcolor{red}{nonvolatile RAM (NVRAM)} to store the necessary context \cite{Balsamo:TCAD16}. NVRAM is solely powered by the small size capacitor while it saves the context, and thus the proposed storage-less and converter-less MPPT allows to save only a very small capacity of context. Fortunately, SmartPatch needs to save just few bytes of information to the NVRAM.
 
 %\begin{figure}
 %\centering
@@ -203,13 +203,12 @@ Fig.~\ref{fig:block_diagram} shows a block diagram of the SmartPatch prototype c
 	\caption{}
 	\label{fig:configuration}
 	\end{subfigure}
-\caption{(a) A block diagram and (b) mode change and parameter setting of SmartPatch.}
+\caption{(a) A block diagram and \textcolor{red}{(b) mode change and parameter setting of SmartPatch.}}
 \end{figure}
 
 %The current version of SmartPatch embeds two user interface functions: device reset and operation mode change. Adding new features does not incur major design change. Fig.~\ref{fig:configuration} shows examples of the switch-less user interface functions. Blocking the UV sensor for more than a second resets SmartPatch and starts a new mode configuration. \textcolor{red}{The user is supposed to repeat blocking the UV sensor until the desired  mode is set. In Figure~\ref{fig:configuration}, the number of operating modes is designed as four for the demonstration purpose, but it is easily expanded by the use of NVRAM. Repeating the reset finger action (blocking the UV sensor longer than a second) makes the device escape from the configuration mode and start a new UV irradiation measurement.}
 
-\textcolor{red}{The operation of SmartPatch with the switch-less interface is described in Fig.~\ref{fig:configuration}. The operating modes are measure, reset, skin type setting, and SPF setting. The mode changes one to the next in a round-robin manner when the UV sensor is blocked by a finger longer than a second. When the current mode is either skin type setting or SPF setting, the current skin type and SPF number change to the next value if the UV sensor is blocked for a while, shorter than a half second. The current design of SmartPatch accommodates up to 10 skin types and up to 10 SPF types for the demonstration purpose, but adding more skin and SPF types can easily be handled in a linear complexity.}
-
+\textcolor{red}{Fig.~\ref{fig:configuration} shows operation modes and user parameter setting for SmartPatch with the switch-less interface. The operating modes are measure, reset, skin type setting, and SPF setting. The mode changes one to the next in a round-robin manner when the UV sensor is blocked by a finger longer than a second. When the current mode is either skin type setting (or SPF setting), the current skin type (or the SPF number) changes to the next value if the UV sensor is blocked for a while, shorter than a half second. A longer blocking causes the mode change to the next while setting the parameter. The current design of SmartPatch accommodates up to 10 skin types and up to 10 SPF types for the demonstration purpose, but adding more skin and SPF types can easily be handled in a linear complexity of the parameter lookup table.}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Single-chip implementation}
@@ -299,8 +298,8 @@ and UV meter 	&in the ASIC chip 				&\\ \hline
 \label{fig:UV_measure}
 \end{figure}
 
-\textcolor{red}{To verify the functionalities and usefulness of SmartPatch, we compare the UV irradiance on various skin areas in the morning and afternoon as shown in Fig.~\ref{fig:UV_measure}. We measure the UV irradiation on the wrists, chests, shoulders, and from the ground as a reference.
-In general, we usually get burned by the sun when enjoying leisure on the beach. In particular, when walking on a beach, sitting on a bench or playing football without hanging a top, the most severe sunburn occurs on the shoulders. Therefore, we choose the shoulder as the skin area of interest in the experiment.}
+\textcolor{red}{To verify the functionalities and usefulness of SmartPatch, we compare the UV irradiance on various skin areas in the morning and afternoon as shown in Fig.~\ref{fig:UV_measure}. We measure the UV irradiation on the wrists, chests, shoulders, and the ground as a reference.
+In general, we usually get burned by the Sun when enjoying leisure on the beach. In particular, when walking on a beach, sitting on a bench or playing football, the most severe sunburn occurs on the shoulders if the person wears a sleeveless shirt or topless, for example. Therefore, we choose the shoulder as the skin area of interest in the experiment.}
 SmartPatch is attached to the shoulder skin, and other UV meters are carried or attached as designed. For instance, a watch type UV meter measures the UV irradiance on the wrist. The UV irradiance to the ground increases by the angle to the Sun that is the maximum at 1:36 pm (13:36) in the experiments.
 
 Of course, the UV irradiance to the skin area is different by activities.
@@ -310,7 +309,8 @@ However, it is impossible to put the watch type UV meter on the shoulder.
 The UV irradiance to the shoulder is sometimes even larger than the UV irradiance to the ground when the shoulder has a perpendicular angle to the Sun.
 
 %Impact of UV measurement error on the skin damage
-\textcolor{red}{We observe that the existing UV meters are only accurate with respect to the part of the body it is monitoring.} This implies that watch type UV meters underestimate UV accumulation on the shoulder up to 16\%, which may cause 50\% more chances of erythema symptoms if UV exposure lasts until the watch type UV meters indicate the maximum exposure time is over~\cite{Harrison:Method02}.
+%\textcolor{red}{We observe that the existing UV meters are only accurate with respect to the part of the body it is monitoring.} 
+\textcolor{red}{The existing UV meter is still accurate but can measure only limited body areas due to the design. So, it may under- or overestimate the UV irradiation of other body area of interest.} This implies that watch type UV meters underestimate UV accumulation on the shoulder up to 16\%, which may cause 50\% more chances of erythema symptoms if UV exposure lasts until the watch type UV meters indicate the maximum exposure time is over~\cite{Harrison:Method02}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Conclusion}
