@@ -27,13 +27,28 @@ We found that several important comments raised by the reviewers were due to mis
 \item [C1: ] Is the number of modes a significant limitation of SmartPatch? It would also help to understand this if the amount MED varies with skin type is shown. If MED varies significantly between pale and very dark skin, and since SPF is multiplicative with maximum UV exposure time I would assume that the four modes does not cover the user space well. You could easily have more than two bins for skin type and way more sunscreen options (SPF 30+) that would significantly alter maximum UV exposure time.  
 \item [R1: ] We will revise the paper contents as follows:
 \begin{itemize}
-\item We modify the terms as follows: operating mode and parameter setting.  The "mode" used in the previous manuscript is confusing, and thus we change it to parameter setting. The method for parameter setting in the previous manuscript has "state explosion" issue for the user interface because the number of parameters (mode in the previous manuscript) increase by the number of skin types multiplied by the number of SFP types. So, we revised the design to accommodate easy handling of up to 10 skin types or more, and up to 10 SFP types or more.
+\item We modify the terms as follows: operating mode and parameter setting.  The ``mode'' used in the previous manuscript is confusing, and thus we change it to parameter setting. The method for parameter setting in the previous manuscript has "state explosion" issue for the user interface because the number of parameters (mode in the previous manuscript) increase by the number of skin types multiplied by the number of SFP types. So, we revised the design to accommodate easy handling of up to 10 skin types or more, and up to 10 SPF types or more.
 \item The operating modes are reset, measure, skin type setting, and SPF setting.
 \item We revise Fig.~5 accordingly.
 \end{itemize}
+
+\underline{We modify the second paragraph of Section III-C in the manuscript as:}\\
+\textcolor{red}{The operation of SmartPatch with the switch-less interface is described in Fig. 5(b). The operating modes are measure, reset, skin type setting, and SPF setting. The mode changes one to the next in a round-robin manner when the UV sensor is blocked by a finger longer than a second. When the current mode is either skin type setting or SPF setting, the current skin type and SPF number change to the next value if the UV sensor is blocked for a while, shorter than a half second. The current design of SmartPatch accommodates up to 10 skin types and up to 10 SPF types for the demonstration purpose, but adding more skin and SPF types can easily be handled in a linear complexity.}
+
 \item [C2: ] ``The existing UV meters under- or overestimates the accumulation of UV irradiance.'' I would assume that existing UV meters are accurate with respect to the part of the body it is monitoring. This should be corrected. In addition, is the shoulder the most appropriate place to measure the UV for these activities (e.g., chatting on a bench, walking outdoors, seated on a grass field)? For a person that is wearing a typical shirt, is the UV measurements in Fig. 9 given for their shoulder under their shirt? Or is the use-case more specific than that (e.g., tank tops or shirt-less)?
 \item [R2: ] 
-Existing UV irradiance meters can be accurate if their UV sensors are positioned on the exact location of a particular skin with the same perpendicular angle to the Sun. However, due to the inherently limited form factor, weight and volume of existing UV meters, most of them only measure the UV irradiance on limited positions of the human body (e.g., wrist and chest.) In addition, they have different perpendicular angles to the Sun, and the angles are changed significantly depending on the moving and activity. Therefore, the measurement can be under or overestimated by the skin area. For example, an wrist strap type UV meter underestimates the accumulation of the UV irradiation on the shoulder.\\ 
+\begin{itemize}
+\item We modify the sentence as you mentioned. 
+\item In general, we usually get burned by the sun when enjoying leisure on the beach. In particular, when walking on a beach, sitting on a bench or playing football without hanging a top, the most severe sunburn occurs on the shoulders. Therefore, we choose the shoulder as the skin area of interest in the experiment.
+\end{itemize}
+
+\underline{We modify the last paragraph of Section IV in the manuscript as:}\\
+\textcolor{red}{We observe that the existing UV meters are only accurate with respect to the part of the body it is monitoring.} This implies that watch type UV meters underestimate UV accumulation on the shoulder up to 16\%, which may cause 50\% more chances of erythema symptoms if UV exposure lasts until the watch type UV meters indicate the maximum exposure time is over [2].\\
+
+\underline{We modify the fourth paragraph of Section IV in the manuscript as:}\\
+\textcolor{red}{To verify the functionalities and usefulness of SmartPatch, we compare the UV irradiance on various skin areas in the morning and afternoon as shown in Fig.~7. We measure the UV irradiation on the wrists, chests, shoulders, and from the ground as a reference.
+In general, we usually get burned by the sun when enjoying leisure on the beach. In particular, when walking on a beach, sitting on a bench or playing football without hanging a top, the most severe sunburn occurs on the shoulders. Therefore, we choose the shoulder as the skin area of interest in the experiment.}
+SmartPatch is attached to the shoulder skin, and other UV meters are carried or attached as designed. For instance, a watch type UV meter measures the UV irradiance on the wrist. The UV irradiance to the ground increases by the angle to the Sun that is the maximum at 1:36 pm (13:36) in the experiments.\\
 ~\\
 
 \item [C3: ] NVRAM should be defined at its first use.
@@ -46,7 +61,7 @@ Existing UV irradiance meters can be accurate if their UV sensors are positioned
 
 \item [R4: ] We revised the whole manuscript, and we colored modified sentences. \\
 
-\underline{We modify Section III-C in the manuscript as:}\\
+\underline{We modify Section IV in the manuscript as:}\\
 \textcolor{red}{To verify the functionalities and usefulness of SmartPatch, we compare the UV irradiance on various skin areas in the morning and afternoon as shown in Fig.~7. We measure the UV irradiation on the wrists, chests, shoulders, and from the ground as a reference.} The skin area of interest in the experiment is the shoulder, and SmartPatch is attached to the shoulder skin. Other UV meters are carried or attached as designed. For instance, a watch type UV meter measures the UV irradiance on the wrist. The UV irradiance to the ground increases by the angle to the Sun that is the maximum at 1:36 pm (13:36) in the experiments.\\
 ~\\
 

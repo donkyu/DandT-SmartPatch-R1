@@ -203,10 +203,13 @@ Fig.~\ref{fig:block_diagram} shows a block diagram of the SmartPatch prototype c
 	\caption{}
 	\label{fig:configuration}
 	\end{subfigure}
-\caption{(a) A block diagram and (b) reset and mode configurations of SmartPatch.}
+\caption{(a) A block diagram and (b) mode change and parameter setting of SmartPatch.}
 \end{figure}
 
-The current version of SmartPatch embeds two user interface functions: device reset and operation mode change. Adding new features does not incur major design change. Fig.~\ref{fig:configuration} shows examples of the switch-less user interface functions. Blocking the UV sensor for more than a second resets SmartPatch and starts a new mode configuration. \textcolor{red}{The user is supposed to repeat blocking the UV sensor until the desired  mode is set. In Figure~\ref{fig:configuration}, the number of operating modes is designed as four for the demonstration purpose, but it is easily expanded by the use of NVRAM. Repeating the reset finger action (blocking the UV sensor longer than a second) makes the device escape from the configuration mode and start a new UV irradiation measurement.}
+%The current version of SmartPatch embeds two user interface functions: device reset and operation mode change. Adding new features does not incur major design change. Fig.~\ref{fig:configuration} shows examples of the switch-less user interface functions. Blocking the UV sensor for more than a second resets SmartPatch and starts a new mode configuration. \textcolor{red}{The user is supposed to repeat blocking the UV sensor until the desired  mode is set. In Figure~\ref{fig:configuration}, the number of operating modes is designed as four for the demonstration purpose, but it is easily expanded by the use of NVRAM. Repeating the reset finger action (blocking the UV sensor longer than a second) makes the device escape from the configuration mode and start a new UV irradiation measurement.}
+
+\textcolor{red}{The operation of SmartPatch with the switch-less interface is described in Fig.~\ref{fig:configuration}. The operating modes are measure, reset, skin type setting, and SPF setting. The mode changes one to the next in a round-robin manner when the UV sensor is blocked by a finger longer than a second. When the current mode is either skin type setting or SPF setting, the current skin type and SPF number change to the next value if the UV sensor is blocked for a while, shorter than a half second. The current design of SmartPatch accommodates up to 10 skin types and up to 10 SPF types for the demonstration purpose, but adding more skin and SPF types can easily be handled in a linear complexity.}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Single-chip implementation}
@@ -296,8 +299,9 @@ and UV meter 	&in the ASIC chip 				&\\ \hline
 \label{fig:UV_measure}
 \end{figure}
 
-\textcolor{red}{To verify the functionalities and usefulness of SmartPatch, we compare the UV irradiance on various skin areas in the morning and afternoon as shown in Fig.~\ref{fig:UV_measure}. We measure the UV irradiation on the wrists, chests, shoulders, and from the ground as a reference.}
-The skin area of interest in the experiment is the shoulder, and SmartPatch is attached to the shoulder skin. Other UV meters are carried or attached as designed. For instance, a watch type UV meter measures the UV irradiance on the wrist. The UV irradiance to the ground increases by the angle to the Sun that is the maximum at 1:36 pm (13:36) in the experiments.
+\textcolor{red}{To verify the functionalities and usefulness of SmartPatch, we compare the UV irradiance on various skin areas in the morning and afternoon as shown in Fig.~\ref{fig:UV_measure}. We measure the UV irradiation on the wrists, chests, shoulders, and from the ground as a reference.
+In general, we usually get burned by the sun when enjoying leisure on the beach. In particular, when walking on a beach, sitting on a bench or playing football without hanging a top, the most severe sunburn occurs on the shoulders. Therefore, we choose the shoulder as the skin area of interest in the experiment.}
+SmartPatch is attached to the shoulder skin, and other UV meters are carried or attached as designed. For instance, a watch type UV meter measures the UV irradiance on the wrist. The UV irradiance to the ground increases by the angle to the Sun that is the maximum at 1:36 pm (13:36) in the experiments.
 
 Of course, the UV irradiance to the skin area is different by activities.
 For example, playing soccer, working and walking outdoor cause high UV irradiance to the shoulder and chest as shown in Fig.~\ref{fig:UV_measure}(a).
@@ -306,8 +310,7 @@ However, it is impossible to put the watch type UV meter on the shoulder.
 The UV irradiance to the shoulder is sometimes even larger than the UV irradiance to the ground when the shoulder has a perpendicular angle to the Sun.
 
 %Impact of UV measurement error on the skin damage
-We observe that existing UV meters under- or overestimate the accumulation of UV irradiance.
-This implies that watch type UV meters underestimate UV accumulation on the shoulder up to 16\%, which may cause 50\% more chances of erythema symptoms if UV exposure lasts until the watch type UV meters indicate the maximum exposure time is over~\cite{Harrison:Method02}.
+\textcolor{red}{We observe that the existing UV meters are only accurate with respect to the part of the body it is monitoring.} This implies that watch type UV meters underestimate UV accumulation on the shoulder up to 16\%, which may cause 50\% more chances of erythema symptoms if UV exposure lasts until the watch type UV meters indicate the maximum exposure time is over~\cite{Harrison:Method02}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Conclusion}
